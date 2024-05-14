@@ -1,0 +1,31 @@
+.btn {
+    --btn-color: hsl(var(--accent-hue), 80%, 40%);
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border-radius: 100vw;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    --btn-color: hsl(var(--accent-hue), 100%, 50%);
+}
+
+.primary {
+    background-color: var(--btn-color);
+    color: white;
+}
+
+.primary {
+    background-color: var(--btn-color);
+    color: white;
+}
+
+.secondary {
+    color: var(--btn-color);;
+    border: 1px solid;
+    background-color: hsla(var(--accent-hue), 100%, 70%, 0.05);
+}
