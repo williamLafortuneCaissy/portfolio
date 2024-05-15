@@ -6,11 +6,9 @@
 }
 
 .content {
-    padding: 0 1rem;
-    max-width: clamp(29rem, 75vw, 46rem);
+    padding: 20vh var(--container-padding);
+    max-width: clamp(29rem, 75vw, 48rem);
     margin-inline: auto;
-    padding-top: 20vh;
-    padding-bottom: 20vh;
 }
 
 .title {
