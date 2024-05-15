@@ -1,0 +1,62 @@
+.rotator {
+    --rotation-duration: 60s;
+    --logo-size: 4rem;
+    --logo-translate: 20rem;
+
+    --wheel-padding: 1rem;
+    --wheel-thickness: calc(var(--logo-size) + var(--wheel-padding) * 2);
+    --wheel-border-color: hsl(var(--primary-hue), 40%, 50%);
+    --wheel-border-width: 1px;
+    --wheel-background-color: hsl(var(--primary-hue), 40%, 5%);
+
+
+    display: grid;
+    place-items: center;
+    
+    aspect-ratio: 1;
+    width: fit-content;
+    border-radius: 50%;
+    padding: var(--wheel-padding);
+
+    /* vars for simplification only */
+    --box-shadow-prefix: inset 0 0 0;
+    --wheel-outer-border: var(--wheel-border-width);
+    --wheel-background: calc(var(--wheel-thickness) + var(--wheel-border-width));
+    --wheel-inner-border: calc(var(--wheel-thickness) + var(--wheel-border-width) * 2);
+
+    box-shadow: 
+        var(--box-shadow-prefix) var(--wheel-outer-border) var(--wheel-border-color),
+        var(--box-shadow-prefix) var(--wheel-background) var(--wheel-background-color),
+        var(--box-shadow-prefix) var(--wheel-inner-border) var(--wheel-border-color);
+}
+
+.rotator > * {
+    grid-column: -1 / 1;
+    grid-row: -1 / 1;
+}
+
+.offsetter {
+    /* --rotation-offset should be set inline */
+    rotate: var(--rotation-offset, 0deg);
+    animation: rotate var(--rotation-duration) linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    margin-left: var(--logo-translate);
+    rotate: calc(-1* var(--rotation-offset));
+    animation: rotate var(--rotation-duration) linear infinite reverse;
+}
+
+
+
