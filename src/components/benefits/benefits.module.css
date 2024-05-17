@@ -1,5 +1,7 @@
 .container {
     padding-inline: var(--container-padding);
+    max-width: var(--container-width);
+    margin-inline: auto;
 }
 
 .title {

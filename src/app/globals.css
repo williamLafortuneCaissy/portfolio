@@ -19,6 +19,7 @@ img, svg {
     --text-light: hsl(var(--primary-hue), 20%, 80%);
 
     --container-padding: clamp(1rem, 5vw, 3rem);
+    --container-width: 1450px; 
 }
 
 * {

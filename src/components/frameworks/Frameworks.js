@@ -37,14 +37,14 @@ const Frameworks = () => {
     return ( 
         <section className={styles.container}>
             <div className={styles.content}>
-                <h2 className={styles.title}>Aux Racines de <br />mes Créations Numériques</h2>
-                <p className={styles.description}>Maîtrisant les fondamentaux du web avec HTML, CSS, et JavaScript, j'utilise une palette d'outils avancés pour sculpter des expériences utilisateurs fluides et captivantes. Les technologies que je présente ici ne sont qu'un aperçu de mon arsenal. Je suis constamment à l'affût de nouveaux outils pour enrichir mon offre et mieux s'adapter à vos visions les plus audacieuses.</p>
+                <h2 className={styles.title}>Aux Racines des<br />Créations Numériques</h2>
+                <p className={styles.text}>Maîtrisant les fondamentaux du web avec HTML, CSS, et JavaScript, j'utilise une palette d'outils avancés pour sculpter des expériences utilisateurs fluides et captivantes. Les technologies que je présente ici ne sont qu'un aperçu de mon arsenal. Je suis constamment à l'affût de nouveaux outils pour enrichir mon offre et mieux s'adapter à vos visions les plus audacieuses.</p>
                 <Button as="a" href="#">Contactez-moi</Button>
             </div>
-            <div className={styles.rotator}>
+            <div className={styles.wheel}>
                 {frameworks.map(({ name: frameworkName, icon, style}, key) => (
-                    <div className={styles.offsetter} style={{ "--rotation-offset": `${360 / frameworks.length * key}deg` }} key={frameworkName}>
-                        <img className={styles.logo} width="50" height="50" src={icon} alt={frameworkName} style={style} />
+                    <div className={styles.rotator} style={{ "--rotation-offset": `${360 / frameworks.length * key}deg` }} key={frameworkName}>
+                        <img className={styles.logo} width="64" height="64" src={icon} alt={frameworkName} style={style} />
                     </div>
                 ))}
             </div>

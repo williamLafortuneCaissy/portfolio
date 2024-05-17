@@ -1,7 +1,33 @@
-.rotator {
+.container {
+    margin-top: 10rem;
+    padding-inline: var(--container-padding);
+
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.content {
+    text-align: center;
+} 
+
+.title {
+    font-size: clamp(1.5rem, 7vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.text {
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+}
+
+/* wheel */
+.wheel {
     --rotation-duration: 60s;
-    --logo-size: 4rem;
-    --logo-translate: 20rem;
+    --logo-size: 3rem;
 
     --wheel-padding: 1rem;
     --wheel-thickness: calc(var(--logo-size) + var(--wheel-padding) * 2);
@@ -12,9 +38,10 @@
 
     display: grid;
     place-items: center;
+    margin-inline: auto;
     
     aspect-ratio: 1;
-    width: fit-content;
+    width: 100%;
     border-radius: 50%;
     padding: var(--wheel-padding);
 
@@ -30,12 +57,13 @@
         var(--box-shadow-prefix) var(--wheel-inner-border) var(--wheel-border-color);
 }
 
-.rotator > * {
+.wheel > * {
     grid-column: -1 / 1;
     grid-row: -1 / 1;
+    width: 100%;
 }
 
-.offsetter {
+.rotator {
     /* --rotation-offset should be set inline */
     rotate: var(--rotation-offset, 0deg);
     animation: rotate var(--rotation-duration) linear infinite;
@@ -53,10 +81,26 @@
 .logo {
     width: var(--logo-size);
     height: var(--logo-size);
-    margin-left: var(--logo-translate);
+    margin-left: auto;
     rotate: calc(-1* var(--rotation-offset));
     animation: rotate var(--rotation-duration) linear infinite reverse;
 }
 
 
-
+@media screen and (min-width: 768px) {
+    .container {
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: var(--container-width);
+        margin-inline: auto;
+        gap: 10rem;
+        margin-top: 20rem;
+    }
+    .content {
+        text-align: left;
+    }
+    .wheel {
+        --logo-size: 4rem;
+    }
+}
