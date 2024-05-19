@@ -24,6 +24,12 @@
     margin-bottom: 1.5rem;
 }
 
+.ctas {
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
 /* wheel */
 .wheel {
     --rotation-duration: 60s;

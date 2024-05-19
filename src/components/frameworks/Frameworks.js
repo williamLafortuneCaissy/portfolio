@@ -39,7 +39,10 @@ const Frameworks = () => {
             <div className={styles.content}>
                 <h2 className={styles.title}>Aux Racines des<br />Créations Numériques</h2>
                 <p className={styles.text}>Maîtrisant les fondamentaux du web avec HTML, CSS, et JavaScript, j'utilise une palette d'outils avancés pour sculpter des expériences utilisateurs fluides et captivantes. Les technologies que je présente ici ne sont qu'un aperçu de mon arsenal. Je suis constamment à l'affût de nouveaux outils pour enrichir mon offre et mieux s'adapter à vos visions les plus audacieuses.</p>
-                <Button as="a" href="#contact">Contactez-moi</Button>
+                <div className={styles.ctas}>
+                    <Button as="a" href="#contact">Contactez-moi</Button>
+                    <Button as="a" href="/cv.pdf" secondary target="_blank">Voir le cv</Button>
+                </div>
             </div>
             <div className={styles.wheel}>
                 {frameworks.map(({ name: frameworkName, icon, style}, key) => (

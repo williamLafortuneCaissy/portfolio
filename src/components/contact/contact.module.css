@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    padding-block: 10vw;
+    padding-block: 5vw;
 }
 
 .title {
@@ -27,6 +27,14 @@
     gap: 1rem;
     font-size: 2rem;
     margin-top: 1rem;
+}
+
+.contactLink {
+    transition: color 0.1s ease-out;
+}
+
+.contactLink:hover {
+    color: var(--text-accent);
 }
 
 .contactList {
@@ -67,7 +75,7 @@
     background-color: white;
     color: black;
     border-radius: .25rem;
-    padding: .5rem .75rem;
+    padding: .75rem 1rem;
     width: 100%;
     transition: outline 0.1s ease-out;
 }
@@ -81,11 +89,16 @@
     align-self: start;
 }
 
+/* 
 @media screen and (min-width: 1024px) {
     .container {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10rem;
+    }
+
+    .contactList {
+        align-self: end;
     }
 
     .form {
@@ -95,5 +108,6 @@
 
     .contactList {
         align-self: end;
-    }
+    } 
 }
+*/
