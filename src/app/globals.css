@@ -1,22 +1,11 @@
-a, a:where(:visited, :hover) {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-img, svg {
-    display: block;
-    max-width: 100%;
-}
-
-
-/* Global styles */
 :root {
+    --body-bg-color: #00000f;
     --primary-hue: 240;
     --accent-hue: 195;
-
+    
     --text-accent: hsl(var(--accent-hue), 100%, 50%);
     --text-light: hsl(var(--primary-hue), 20%, 80%);
+    --primary-border-color: hsl(var(--primary-hue), 40%, 50%);
 
     --container-padding: clamp(1rem, 5vw, 3rem);
     --container-width: 1450px; 
@@ -29,7 +18,7 @@ img, svg {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #00000F;
+    background-color: var(--body-bg-color);
     color: white;
     line-height: 1.5;
     text-wrap: pretty;

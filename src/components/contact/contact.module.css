@@ -1,0 +1,99 @@
+
+.container {
+    padding-inline: var(--container-padding);
+    max-width: var(--container-width);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-block: 10vw;
+}
+
+.title {
+    font-size: clamp(2rem, 7vw, 3rem);
+    line-height: 1.2;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.text {
+    color: var(--text-light);
+    line-height: 1.75;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contactIcon {
+    color: var(--text-accent);
+    font-size: 1.25rem;
+}
+
+.card {
+    padding: 10%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--primary-border-color);
+    background-color: hsl(var(--primary-hue), 30%, 8%);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+.label {
+    margin-bottom: .25rem;
+}
+
+.input {
+    background-color: white;
+    color: black;
+    border-radius: .25rem;
+    padding: .5rem .75rem;
+    width: 100%;
+    transition: outline 0.1s ease-out;
+}
+
+.input:focus {
+    outline: 3px solid var(--primary-border-color);
+}
+
+.submit {
+    margin-top: .5rem;
+    align-self: start;
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10rem;
+    }
+
+    .form {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .contactList {
+        align-self: end;
+    }
+}

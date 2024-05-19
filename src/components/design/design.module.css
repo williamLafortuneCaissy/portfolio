@@ -20,7 +20,7 @@
 }
 
 .separator {
-    color: hsl(var(--primary-hue), 40%, 50%);
+    color: var(--primary-border-color);
     border-left: 1px solid;
     height: 5rem;
     margin-inline: auto;

@@ -31,7 +31,7 @@
 
     --wheel-padding: 1rem;
     --wheel-thickness: calc(var(--logo-size) + var(--wheel-padding) * 2);
-    --wheel-border-color: hsl(var(--primary-hue), 40%, 50%);
+    --wheel-border-color: var(--primary-border-color);
     --wheel-border-width: 1px;
     --wheel-background-color: hsl(var(--primary-hue), 40%, 5%);
 
