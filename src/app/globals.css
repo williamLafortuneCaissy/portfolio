@@ -31,3 +31,7 @@ body {
 .text-accent {
     color: var(--text-accent);
 }
+
+.relative {
+    position: relative;
+}

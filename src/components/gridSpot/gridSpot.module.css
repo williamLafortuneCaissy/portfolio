@@ -1,0 +1,30 @@
+
+.spot {
+    --square-size: 20vw;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(var(--primary-border-color) 1px, transparent 1px), 
+        linear-gradient(90deg, var(--primary-border-color) 1px, transparent 1px);
+    opacity: .7; /* add contrast with other borders */
+    background-size: var(--square-size) var(--square-size);
+    background-position: calc(-1 * var(--square-size) / 2) calc( -1 * var(--square-size) / 2);
+    
+    mask-repeat: no-repeat;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .spot {
+        --square-size: 10vw;
+    }
+}
+
+
+.heroSpot {
+    mask-image: 
+        linear-gradient(transparent 0%, black 10%, black 45%, transparent 55%),
+        linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-composite: intersect;
+}
