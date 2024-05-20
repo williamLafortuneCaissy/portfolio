@@ -5,7 +5,7 @@ import styles from "./hero.module.css";
 const Hero = () => {
     return (
       <section className={`${styles.hero} relative`}>
-        <GridSpot hero/>
+        <GridSpot squareMask size="100% 50%" position="top"/>
         <div className={styles.content}>
           <h1 className={styles.title}>
             Donnez vie à vos idées <br />

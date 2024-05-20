@@ -2,6 +2,7 @@
     padding-inline: var(--container-padding);
     max-width: var(--container-width);
     margin-inline: auto;
+    padding-bottom: 5rem;
 }
 
 .title {

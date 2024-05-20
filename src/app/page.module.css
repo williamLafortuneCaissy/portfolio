@@ -6,3 +6,13 @@
 .inverted {
     transform: scaleY(-1); 
 }
+
+.gridSpacer {
+    height: 15rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .gridSpacer {
+        height: 5rem;
+    }
+}

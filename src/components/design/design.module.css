@@ -2,7 +2,8 @@
     padding-inline: var(--container-padding);
     max-width: var(--container-width);
     margin-inline: auto;
-    margin-top: 20rem;
+    padding-block: 5rem;
+    margin-top: 5rem;
 }
 
 .grid {
@@ -20,8 +21,8 @@
 }
 
 .separator {
-    color: var(--primary-border-color);
-    border-left: 1px solid;
+    color: hsl(var(--primary-hue), 70%, 60%);
+    border-left: 2px solid;
     height: 5rem;
     margin-inline: auto;
     width: fit-content
@@ -65,8 +66,8 @@
     }
 
     .separator {
-        border-left: 1px solid;
-        border-bottom: 1px solid;
+        border-left: 2px solid;
+        border-bottom: 2px solid;
         margin-left: 20%;
         margin-bottom: 50%;
         width: 80%;
