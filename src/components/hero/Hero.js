@@ -14,7 +14,7 @@ const Hero = () => {
           <p className={styles.subtitle}>William Lafortune-Caissy, un Développeur Web Front-End qui transforme vos projets en réalité.</p>
           <div className={styles.ctas}>
             <Button as="a" href="#contact">Contactez-moi</Button>
-            <Button as="a" href="/cv.pdf" secondary target="_blank">Voir le cv</Button>
+            <Button as="a" href="./cv.pdf" secondary target="_blank">Voir le cv</Button>
           </div>
         </div>
       </section>
