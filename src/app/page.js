@@ -12,14 +12,14 @@ export default function Home() {
     <>
       <main className={styles.main}>
           <Hero />
-          <Image className={styles.heroImg} src="/hero-bg.png" alt="" width={1440} height={233} />
+          <Image className={styles.heroImg} src="./hero-bg.png" alt="" width={1440} height={233} />
           <Benefits />
           <div className={`${styles.gridSpacer} relative`}>
             <GridSpot size="100%" mobileOnly />
           </div>
           <Frameworks />
           <Design />
-          <Image className={`${styles.heroImg} ${styles.inverted}`} src="/hero-bg.png" alt="" width={1440} height={233} />
+          <Image className={`${styles.heroImg} ${styles.inverted}`} src="./hero-bg.png" alt="" width={1440} height={233} />
       </main>
       <Contact />
     </>
