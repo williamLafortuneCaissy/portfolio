@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    basePath: '/portfolio-2024',
+    reactStrictMode: true,
     output: 'export',
     images: {
         unoptimized: true,
