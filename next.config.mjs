@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    assetPrefix: '/.',
     basePath: '/portfolio-2024',
     reactStrictMode: true,
     output: 'export',
