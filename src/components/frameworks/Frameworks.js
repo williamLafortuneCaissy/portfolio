@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "../button/Button";
 import GridSpot from "../gridSpot/GridSpot";
 import styles from "./frameworks.module.css";
@@ -42,7 +43,7 @@ const Frameworks = () => {
             <div className={styles.container}>
                 <div className={styles.content}>
                     <h2 className={styles.title}>Aux Racines des<br />Créations Numériques</h2>
-                    <p className={styles.text}>Maîtrisant les fondamentaux du web avec HTML, CSS, et JavaScript, j'utilise une palette d'outils avancés pour sculpter des expériences utilisateurs fluides et captivantes. Les technologies que je présente ici ne sont qu'un aperçu de mon arsenal. Je suis constamment à l'affût de nouveaux outils pour enrichir mon offre et mieux s'adapter à vos visions les plus audacieuses.</p>
+                    <p className={styles.text}>Maîtrisant les fondamentaux du web avec HTML, CSS, et JavaScript, j’utilise une palette d’outils avancés pour sculpter des expériences utilisateurs fluides et captivantes. Les technologies que je présente ici ne sont qu’un aperçu de mon arsenal. Je suis constamment à l’affût de nouveaux outils pour enrichir mon offre et mieux s’adapter à vos visions les plus audacieuses.</p>
                     <div className={styles.ctas}>
                         <Button as="a" href="#contact">Contactez-moi</Button>
                         <Button as="a" href="/cv.pdf" secondary target="_blank">Voir le cv</Button>
@@ -51,7 +52,7 @@ const Frameworks = () => {
                 <div className={styles.wheel}>
                     {frameworks.map(({ name: frameworkName, icon, style}, key) => (
                         <div className={styles.rotator} style={{ "--rotation-offset": `${360 / frameworks.length * key}deg` }} key={frameworkName}>
-                            <img className={styles.logo} width="64" height="64" src={icon} alt={frameworkName} style={style} />
+                            <Image className={styles.logo} width="64" height="64" src={icon} alt={frameworkName} style={style} />
                         </div>
                     ))}
                 </div>

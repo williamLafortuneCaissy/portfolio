@@ -6,12 +6,13 @@ const Design = () => {
         <section className={`relative`}>
             <GridSpot size="40vw 40vw" position="top right" desktopOnly />
             <GridSpot size="40vw 40vw" position="bottom left" desktopOnly />
+            <GridSpot squareMask size="100vw 20rem" position="top" mobileOnly />
             <div className={styles.container}>
                 <h2 className={styles.title}>Un pont entre Design et Développement</h2>
                 <div className={styles.grid}>
                     <div className={styles.content}>
                         <h3 className={styles.contentTitle}>L’expert Front-end: un atout pour les designers</h3>
-                        <p className={styles.text}>En tant que développeur Front-End ayant une bonne compréhention des principes de design, je suis apte à m'impliquer à l’élaboration des maquettes tout en respectant les contraintes techniques de la programmation.</p>
+                        <p className={styles.text}>En tant que développeur Front-End ayant une bonne compréhention des principes de design, je suis apte à m’impliquer à l’élaboration des maquettes tout en respectant les contraintes techniques de la programmation.</p>
                     </div>
                     <div className={styles.separator} />
                     <div className={styles.content}>

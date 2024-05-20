@@ -5,20 +5,21 @@ import Frameworks from "@/components/frameworks/Frameworks";
 import Design from "@/components/design/Design";
 import Contact from "@/components/contact/Contact";
 import GridSpot from "@/components/gridSpot/GridSpot";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       <main className={styles.main}>
           <Hero />
-          <img className={styles.heroImg} src="/hero-bg.png" alt="" />
+          <Image className={styles.heroImg} src="/hero-bg.png" alt="" width={1440} height={233} />
           <Benefits />
           <div className={`${styles.gridSpacer} relative`}>
             <GridSpot size="100%" mobileOnly />
           </div>
           <Frameworks />
           <Design />
-          <img className={`${styles.heroImg} ${styles.inverted}`} src="/hero-bg.png" alt="" />
+          <Image className={`${styles.heroImg} ${styles.inverted}`} src="/hero-bg.png" alt="" width={1440} height={233} />
       </main>
       <Contact />
     </>
