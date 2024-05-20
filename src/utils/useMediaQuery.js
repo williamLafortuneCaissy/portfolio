@@ -10,6 +10,8 @@ function useMediaQuery(query) {
 
     mediaQueryList.addListener(documentChangeHandler);
 
+    setMatches(mediaQueryList.matches)
+
     return () => {
       mediaQueryList.removeListener(documentChangeHandler);
     };
