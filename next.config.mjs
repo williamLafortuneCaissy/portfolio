@@ -12,7 +12,7 @@ const nextConfig = {
     // skipTrailingSlashRedirect: true,
     
     // Optional: Change the output directory `out` -> `docs`
-    distDir: process.env.NODE_ENV === 'production' ? 'docs' : '.next',
+    distDir: 'docs',
 };
 
 export default nextConfig;
