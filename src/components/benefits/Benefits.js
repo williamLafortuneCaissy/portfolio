@@ -5,7 +5,7 @@ import styles from "./benefits.module.css";
 
 const Benefits = () => {
     return ( 
-        <section className={`relative`}>
+        <section className={`${styles.section} relative`}>
             <GridSpot size="40vw 40vw" position="top right" desktopOnly />
             <GridSpot size="40vw 40vw" position="bottom left" desktopOnly />
             <div className={styles.container}>
