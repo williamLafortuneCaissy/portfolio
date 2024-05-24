@@ -35,3 +35,8 @@ body {
 .relative {
     position: relative;
 }
+
+.slideIn,
+.fadeIn {
+    opacity: 0;
+}
