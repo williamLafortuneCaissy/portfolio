@@ -5,37 +5,39 @@ import GridSpot from "../gridSpot/GridSpot";
 import styles from "./hero.module.css";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import Image from "next/image";
 
 const Hero = () => {
     const heroRef = useRef();
 
-    gsap.registerPlugin(useGSAP);
-    useGSAP(
-        () => {
-            const timeline = gsap.timeline();
-            
-            const stagger = 0.1;
-            const duration = 1;
-            timeline.fromTo(
-                '.fadeIn',
-                { opacity: 0, y: -20 },
-                { opacity: 1, y: 0, duration, stagger }
-            ); 
-            timeline.fromTo(
-                '.slideIn',
-                { opacity: 0, y: 50 },
-                { opacity: 1, y: 0},
-                `-=${duration - stagger}` 
-            );
-            
-            timeline.to(
-                '.gradient',
-                { backgroundPosition: 0, duration: 3, ease: "power4.out"},
-            );
+    gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-        },{ scope: heroRef }
+    const handleOpeningAnimations = () => {
+        const timeline = gsap.timeline();
+            
+        const stagger = 0.1;
+        const duration = 1;
+        timeline.fromTo(
+            '.fadeIn',
+            { opacity: 0, y: -20 },
+            { opacity: 1, y: 0, duration, stagger }
+        ); 
+        timeline.fromTo(
+            '.slideIn',
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0},
+            `-=${duration - stagger}` 
+        );
+        
+        timeline.to(
+            '.gradient',
+            { backgroundPosition: 0, duration: 3, ease: "power4.out"},
+        );
+    }
+    useGSAP(
+        handleOpeningAnimations, { scope: heroRef }
     );
 
     return (
@@ -44,7 +46,7 @@ const Hero = () => {
             <div className={styles.content}>
                 <h1 className={`${styles.title} fadeIn`}>
                     Donnez vie à vos idées <br />
-                    les plus <span className={`${styles.animatedGradient} gradient`}>innovant</span>
+                    <span className={`${styles.animatedGradient} gradient`}>les plus innovant</span>
                 </h1>
                 <p className={`${styles.subtitle} fadeIn`}>William Lafortune-Caissy, un Développeur Web Front-End qui transforme vos projets en réalité.</p>
                 <div className={`${styles.ctas} fadeIn`}>
