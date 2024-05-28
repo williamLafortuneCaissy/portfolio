@@ -1,5 +1,6 @@
 .hero {
-    --hero-content-height: 80vh;
+    --hero-image-height: min(20vh, 20vw);
+    --hero-content-height: calc(100vh - var(--hero-image-height));
     text-align: center;
 }
 
@@ -15,7 +16,7 @@
 
 .image {
     width: 100%;
-    height: calc(100vh - var(--hero-content-height))
+    height: var(--hero-image-height);
 }
 
 .title {
