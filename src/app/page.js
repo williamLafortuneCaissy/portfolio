@@ -13,7 +13,7 @@ export default function Home() {
       <main className={styles.main}>
           <Hero />
           <Benefits />
-          <div className={`${styles.gridSpacer} relative`}>
+          <div className={`${styles.gridSpacer} isolatedRelative`}>
             <GridSpot size="100%" mobileOnly />
           </div>
           <Frameworks />

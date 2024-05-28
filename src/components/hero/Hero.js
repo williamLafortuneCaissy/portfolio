@@ -1,13 +1,12 @@
 "use client"
 
+import { useRef } from "react";
 import Button from "../button/Button";
 import GridSpot from "../gridSpot/GridSpot";
 import styles from "./hero.module.css";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import Image from "next/image";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Hero = () => {
@@ -56,7 +55,7 @@ const Hero = () => {
 
     return (
         <section className={`${styles.hero}`} ref={heroRef}>
-            <div className="relative pinnedContent">
+            <div className="isolatedRelative pinnedContent">
                 <GridSpot squareMask size="100% 40%" position="top" />
                 <div className={`${styles.content} `}>
                     <h1 className={`${styles.title} fadeIn`}>

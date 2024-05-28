@@ -1,5 +1,6 @@
 .section {
     background-color: var(--body-bg-color);
+    overflow: hidden;
 }
 
 .container {
