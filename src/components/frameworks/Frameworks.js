@@ -37,7 +37,7 @@ const frameworks = [
 
 const Frameworks = () => {
     return ( 
-        <section className="relative">
+        <section className="isolatedRelative">
             <GridSpot size="50vw 50vw" position="right" desktopOnly />
             <GridSpot size="120vw 120vw" position="bottom" mobileOnly />
             <div className={styles.container}>

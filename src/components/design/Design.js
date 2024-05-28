@@ -3,7 +3,7 @@ import styles from "./design.module.css";
 
 const Design = () => {
     return ( 
-        <section className={`relative`}>
+        <section className={`isolatedRelative`}>
             <GridSpot size="40vw 40vw" position="top right" desktopOnly />
             <GridSpot size="40vw 40vw" position="bottom left" desktopOnly />
             <GridSpot squareMask size="100vw 20rem" position="top" mobileOnly />

@@ -5,7 +5,7 @@ import styles from './contact.module.css';
 
 const Contact = () => {
     return ( 
-        <section id="contact" className="relative">
+        <section id="contact" className="isolatedRelative">
             <GridSpot size="50vw 50vw" position="right" desktopOnly />
             <div className={styles.container}>
                 <div className={styles.content}>

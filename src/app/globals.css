@@ -15,10 +15,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--body-bg-color);
@@ -32,6 +28,12 @@ body {
     color: var(--text-accent);
 }
 
-.relative {
+.isolatedRelative {
     position: relative;
+    isolation: isolate;
+}
+
+.slideIn,
+.fadeIn {
+    opacity: 0;
 }

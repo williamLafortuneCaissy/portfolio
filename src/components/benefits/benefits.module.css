@@ -1,3 +1,8 @@
+.section {
+    background-color: var(--body-bg-color);
+    overflow: hidden;
+}
+
 .container {
     padding-inline: var(--container-padding);
     max-width: var(--container-width);
@@ -11,7 +16,7 @@
     font-size: clamp(1.5rem, 7vw, 3rem);
     line-height: 1.2;
     font-weight: 600;
-    margin-top: 4rem;
+    padding-top: 4rem;
     margin-bottom: 6rem;
 }
 

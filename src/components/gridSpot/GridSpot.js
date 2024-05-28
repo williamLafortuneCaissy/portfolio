@@ -3,7 +3,7 @@
 import useMediaQuery from '@/utils/useMediaQuery';
 import styles from './gridSpot.module.css';
 
-/* make sure to have a relative parent */
+/* make sure to have a isolatedRelative parent */
 const GridSpot = ({ squareMask = false, size = '100vw', position = 'center', desktopOnly, mobileOnly }) => {
     const isDesktop = useMediaQuery('(min-width: 1024px)');
     const isMobile = useMediaQuery('(max-width: 1023px)');
