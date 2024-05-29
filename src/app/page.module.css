@@ -1,6 +1,9 @@
+.main {
+    background-color: var(--body-bg-color);
+}
+
 .heroImg {
     width: 100%;
-    margin-block: 3rem;
 }
 
 .inverted {

@@ -1,3 +1,8 @@
+.section {
+    position: sticky;
+    bottom: 0;
+    z-index: -1;
+}
 
 .container {
     padding-inline: var(--container-padding);
