@@ -18,7 +18,6 @@ export default function Home() {
           </div>
           <Frameworks />
           <Design />
-          <PlanetGraphic inverted />
       </main>
       <Contact />
     </>

@@ -1,9 +1,3 @@
-.sticky {
-    position: sticky;
-    bottom: 0;
-    z-index: -1;
-}
-
 .container {
     padding-inline: var(--container-padding);
     max-width: var(--container-width);
@@ -46,6 +40,7 @@
 .contactList {
     display: flex;
     flex-direction: column;
+    align-items: start;
     gap: .75rem;
 }
 

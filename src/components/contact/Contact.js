@@ -1,11 +1,57 @@
+"use client"
+
 import { IconMail, IconPin, IconPhone, IconFacebook, IconLinkedin, Icongithub } from "../Icons";
 import GridSpot from "../gridSpot/GridSpot";
 import styles from './contact.module.css';
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import PlanetGraphic from "../planetGraphic/PlanetGraphic";
 
 const Contact = () => {
+    const contactRef = useRef();
+    const graphicRef = useRef();
+
+    gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+    const unpin = () => {
+        gsap.set(contactRef.current, { position: undefined, bottom: undefined, zIndex: undefined });
+    }
+
+    const pin = () => {
+        gsap.set(contactRef.current, { position: 'sticky', bottom: 0, zIndex: -1 });
+    }
+
+    useGSAP(
+        () => {
+            // sticky contact needs gsap to prevent conflict with sticky hero + handles anchor cta
+            ScrollTrigger.create({
+                trigger: graphicRef.current,
+                start: "top bottom",
+                onEnter: self => { pin() },
+                onLeaveBack: self => { unpin() },
+                onEnterBack: self => {
+                    pin()
+                    self.refresh() // handles initial pageLoad scroll offset
+                },
+                onLeave: self => {
+                    unpin()
+                    self.refresh() // handles initial pageLoad scroll offset
+                },
+
+
+            });
+
+        }, { scope: contactRef }
+    );
+
     return (
-        <section id="contact">
-            <div className={`${styles.sticky} isolatedRelative`}>
+        <>
+            <div ref={graphicRef}>
+                <PlanetGraphic inverted />
+            </div>
+            <footer id="contact" className={`isolatedRelative `} ref={contactRef}>
                 <GridSpot size="50vw 50vw" position="right" desktopOnly />
                 <div className={styles.container}>
                     <div className={styles.content}>
@@ -33,8 +79,8 @@ const Contact = () => {
                         </a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </footer>
+        </>
     );
 }
 
