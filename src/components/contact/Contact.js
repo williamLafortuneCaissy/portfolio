@@ -16,7 +16,7 @@ const Contact = () => {
     gsap.registerPlugin(useGSAP, ScrollTrigger);
 
     const unpin = () => {
-        gsap.set(contactRef.current, { position: undefined, bottom: undefined, zIndex: undefined });
+        gsap.set(contactRef.current, { position: 'static', bottom: 'auto', zIndex: 0 });
     }
 
     const pin = () => {
