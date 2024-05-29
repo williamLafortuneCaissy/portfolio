@@ -4,8 +4,11 @@
     margin-inline: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 3rem;
-    padding-block: 5vw;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    min-height: 70vh;
 }
 
 .title {
@@ -25,7 +28,7 @@
     align-items: center;
     gap: 1rem;
     font-size: 2rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .socialLink {
