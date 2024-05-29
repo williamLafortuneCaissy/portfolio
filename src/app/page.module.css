@@ -2,10 +2,6 @@
     background-color: var(--body-bg-color);
 }
 
-.heroImg {
-    width: 100%;
-}
-
 .inverted {
     transform: scaleY(-1); 
 }
