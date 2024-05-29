@@ -1,3 +1,7 @@
+.body {
+    isolation: isolate;
+}
+
 .main {
     background-color: var(--body-bg-color);
 }
