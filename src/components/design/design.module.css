@@ -21,7 +21,8 @@
 }
 
 .separator {
-    color: hsl(var(--primary-hue), 70%, 60%);
+    /* color: hsl(var(--primary-hue), 70%, 60%); */
+    color: var(--text-accent);
     border-left: 2px solid;
     height: 5rem;
     margin-inline: auto;

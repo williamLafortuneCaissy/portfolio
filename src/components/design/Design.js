@@ -8,7 +8,7 @@ const Design = () => {
             <GridSpot size="40vw 40vw" position="bottom left" desktopOnly />
             <GridSpot squareMask size="100vw 20rem" position="top" mobileOnly />
             <div className={styles.container}>
-                <h2 className={styles.title}>Un pont entre Design et Développement</h2>
+                <h2 className={styles.title}>Un pont entre <span className="gradientText">Design et Développement</span></h2>
                 <div className={styles.grid}>
                     <div className={styles.content}>
                         <h3 className={styles.contentTitle}>L’expert Front-end: un atout pour les designers</h3>

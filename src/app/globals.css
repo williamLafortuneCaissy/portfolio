@@ -37,3 +37,10 @@ body {
 .fadeIn {
     opacity: 0;
 }
+
+.gradientText {
+    background: linear-gradient(90deg, white, var(--text-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

@@ -34,12 +34,13 @@
     margin-top: 1rem;
 }
 
-.contactLink {
+.socialLink {
     transition: color 0.1s ease-out;
+    color: var(--text-accent);
 }
 
-.contactLink:hover {
-    color: var(--text-accent);
+.socialLink:hover {
+    color: inherit;
 }
 
 .contactList {
@@ -52,6 +53,14 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.contactLink {
+    transition: color 0.1s ease-out;
+}
+
+.contactLink:hover {
+    color: var(--text-accent);
 }
 
 .contactIcon {
