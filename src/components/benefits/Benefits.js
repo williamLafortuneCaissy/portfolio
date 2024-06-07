@@ -45,7 +45,7 @@ const Benefits = () => {
                 y: 0,
                 scrollTrigger: {
                     trigger: titleRef.current,
-                    start: 'top 80%',
+                    start: 'top 90%',
                 },
             },
         );
