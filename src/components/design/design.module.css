@@ -23,7 +23,6 @@
 .separator {
     /* color: hsl(var(--primary-hue), 70%, 60%); */
     color: var(--text-accent);
-    border-left: 2px solid;
     height: 5rem;
     margin-inline: auto;
     width: fit-content
@@ -67,11 +66,9 @@
     }
 
     .separator {
-        border-left: 2px solid;
-        border-bottom: 2px solid;
         margin-left: 20%;
-        margin-bottom: 50%;
         width: 80%;
-        height: 50%;
+        height: auto;
+        margin-bottom: 50%;
     }
 }
