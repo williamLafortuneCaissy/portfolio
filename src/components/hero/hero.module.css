@@ -1,6 +1,4 @@
 .hero {
-    --hero-image-height: min(20vh, 20vw);
-    --hero-content-height: calc(100vh - var(--hero-image-height));
     text-align: center;
 }
 
@@ -8,15 +6,10 @@
     padding: var(--container-padding);
     max-width: clamp(29rem, 75vw, 48rem);
     margin-inline: auto;
-    min-height: var(--hero-content-height);
+    min-height: 80vh;
     display: grid;
     place-content: center;
     justify-items: center;
-}
-
-.image {
-    width: 100%;
-    height: var(--hero-image-height);
 }
 
 .title {

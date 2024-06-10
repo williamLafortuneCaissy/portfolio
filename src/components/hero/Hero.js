@@ -4,10 +4,10 @@ import { useRef } from "react";
 import Button from "../button/Button";
 import GridSpot from "../gridSpot/GridSpot";
 import styles from "./hero.module.css";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import PlanetGraphic from "../planetGraphic/PlanetGraphic";
 
 const Hero = () => {
     const heroRef = useRef();
@@ -69,7 +69,7 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-          <Image className={`${styles.image} slideIn`} src="./hero-bg.png" alt="" width={1440} height={233} />
+            <PlanetGraphic className={`slideIn`} />
         </section>
     );
 }

@@ -45,7 +45,8 @@ const Benefits = () => {
                 y: 0,
                 scrollTrigger: {
                     trigger: titleRef.current,
-                    start: 'top 80%',
+                    start: 'top 90%',
+                    toggleActions: 'restart pause resume reverse',
                 },
             },
         );
@@ -139,7 +140,7 @@ const Benefits = () => {
             <GridSpot size="40vw 40vw" position="top right" desktopOnly />
             <GridSpot size="40vw 40vw" position="bottom left" desktopOnly />
             <div className={styles.container}>
-                <h2 className={`${styles.title} fadeIn`} ref={titleRef}>L’Expertise Front-End au Service de Votre Vision</h2>
+                <h2 className={`${styles.title} fadeIn`} ref={titleRef}>L’Expertise Front-End au <span className="gradientText">Service de Votre Vision</span></h2>
                 <div className={styles.grid}>
                     {cardsData.map(card => (
                         <div className={styles.card} key={card.title} ref={el => cardRef.current.push(el)}>

@@ -1,0 +1,40 @@
+.mask {
+    overflow: hidden;
+    aspect-ratio: 6;
+    display: flex;
+    flex-direction: column;
+}
+
+.inverted {
+    flex-direction: column-reverse;
+}
+
+/* need to use ::before and filter: blur() instead of radial-gradient() 
+    because the elipse shape makes the gradient bigger on the sides */
+.graphic {
+    flex-shrink: 0;
+    height: 50vw;
+    border-radius: 100%;
+    scale: 1.5;
+    transform-origin: top;
+    position: relative;
+    overflow: hidden;
+    pointer-events: none; /* only for inspecting easier */
+
+    background-color: hsl(var(--primary-hue), 20%, 35%);
+}
+
+.inverted .graphic {
+    transform-origin: bottom;
+}
+
+.graphic::before {
+    content: "";
+    display: block;
+    border-radius: 100%;
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--body-bg-color);
+    filter: blur(1.75vw);
+}

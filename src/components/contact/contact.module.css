@@ -1,12 +1,14 @@
-
 .container {
     padding-inline: var(--container-padding);
     max-width: var(--container-width);
     margin-inline: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 3rem;
-    padding-block: 5vw;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    min-height: 70vh;
 }
 
 .title {
@@ -26,7 +28,29 @@
     align-items: center;
     gap: 1rem;
     font-size: 2rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+}
+
+.socialLink {
+    transition: color 0.1s ease-out;
+    color: var(--text-accent);
+}
+
+.socialLink:hover {
+    color: inherit;
+}
+
+.contactList {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: .75rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .contactLink {
@@ -35,18 +59,6 @@
 
 .contactLink:hover {
     color: var(--text-accent);
-}
-
-.contactList {
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
-}
-
-.contactItem {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 .contactIcon {
