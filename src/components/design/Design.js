@@ -29,7 +29,8 @@ const Design = () => {
                         stagger: .1,
                         scrollTrigger: {
                             trigger: element,
-                            start: 'center center',
+                            start: 'top 70%',
+                            toggleActions: 'restart pause resume reverse',
                         },
                         ease: "power4.out",
                     },
@@ -39,7 +40,8 @@ const Design = () => {
             const seperatorTimeline = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.seperator',
-                    start: 'top center',
+                    start: 'top 70%',
+                    toggleActions: 'restart pause resume reverse',
                 }
             });
 
@@ -74,7 +76,7 @@ const Design = () => {
 
 
 
-        }, { scope: designRef}
+        }, { scope: designRef }
     );
 
     return (

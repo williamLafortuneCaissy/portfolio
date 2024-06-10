@@ -63,6 +63,7 @@
 @media screen and (max-width: 1023px) {
     .container {
         text-align: center;
+        padding-bottom: 5rem;
     }
 }
 

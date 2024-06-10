@@ -46,6 +46,7 @@ const Benefits = () => {
                 scrollTrigger: {
                     trigger: titleRef.current,
                     start: 'top 90%',
+                    toggleActions: 'restart pause resume reverse',
                 },
             },
         );

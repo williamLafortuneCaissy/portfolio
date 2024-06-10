@@ -60,6 +60,7 @@ const Frameworks = () => {
                     scrollTrigger: {
                         trigger: contentRef.current,
                         start: 'top center',
+                        toggleActions: 'restart pause resume reverse',
                     },
                     ease: "power4.out",
                 },
