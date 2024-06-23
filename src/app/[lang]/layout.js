@@ -10,9 +10,9 @@ export const metadata = {
   description: "Portfolio de William Lafortune-Caissy, développeur Front-End à Sainte-Sophie. Ouvert aux opportunités d'emploi sur place, hybride ou en télétravail dans les environs de Saint-Jérôme, Terrebonne et Mirabel.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, lang }) {
   return (
-    <html lang="fr" suppressHydrationWarning={true}>
+    <html lang={lang} suppressHydrationWarning={true}>
       <body className={nunito.className}>{children}</body>
     </html>
   );
