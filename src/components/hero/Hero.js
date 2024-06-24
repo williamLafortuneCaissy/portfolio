@@ -9,7 +9,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PlanetGraphic from "../planetGraphic/PlanetGraphic";
 import { useTranslations } from "next-intl";
-import LocaleSwitcher from "../localeSwitcher/LocaleSwitcher";
 
 const Hero = () => {
     const heroRef = useRef();
@@ -58,12 +57,12 @@ const Hero = () => {
 
     return (
         <section className={`${styles.hero}`} ref={heroRef}>
-            <LocaleSwitcher />
             <div className="isolatedRelative pinnedContent">
                 <GridSpot squareMask size="100% 40%" position="top" />
                 <div className={`${styles.content} `}>
                     <h1></h1>
                     <h1 className={`${styles.title} fadeIn`}>
+                        {/* cannot use t.rich because the animation breaks */}
                         {t('title_1')} <br />
                         <span className={`${styles.animatedGradient} gradient`}>{t('title_2')}</span>
                     </h1>

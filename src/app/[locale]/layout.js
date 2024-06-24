@@ -5,6 +5,7 @@ import "./globals.css";
 import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { locales } from "@/config";
+import LocaleSwitcher from "@/components/localeSwitcher/LocaleSwitcher";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -21,6 +22,8 @@ export default async function LocaleLayout({ children, params: { locale } }) {
     <html lang={locale} suppressHydrationWarning={true}>
       <body className={nunito.className}>
         <NextIntlClientProvider messages={messages}>
+          <LocaleSwitcher />
+
           {children}
         </NextIntlClientProvider>
       </body>
