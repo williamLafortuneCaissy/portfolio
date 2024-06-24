@@ -8,8 +8,10 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import PlanetGraphic from "../planetGraphic/PlanetGraphic";
+import { useTranslations } from "next-intl";
 
 const Contact = () => {
+    const t = useTranslations('Contact');
     const contactRef = useRef();
     const graphicRef = useRef();
 
@@ -56,8 +58,8 @@ const Contact = () => {
                     <GridSpot size="50vw 50vw" position="right" desktopOnly />
                     <div className={styles.container}>
                         <div className={styles.content}>
-                            <h2 className={styles.title}><span className="gradientText">Contactez-moi</span></h2>
-                            <p className={styles.text}>Bâtissez votre équipe de demain, un développeur à la fois</p>
+                            <h2 className={styles.title}><span className="gradientText">{t('title')}</span></h2>
+                            <p className={styles.text}>{t('subtitle')}</p>
                             <div className={styles.socials}>
                                 <a className={styles.socialLink} href="https://www.facebook.com/william.lafortunecaissy" target="_blank" rel="noreferrer noopener"><IconFacebook className={styles.icon} /></a>
                                 <a className={styles.socialLink} href="https://www.linkedin.com/in/william-lafortune-caissy-803800149/" target="_blank" rel="noreferrer noopener"><IconLinkedin className={styles.icon} /></a>
@@ -67,11 +69,11 @@ const Contact = () => {
                         {/* <ContactForm className={styles.form}/> */}
                         <div className={styles.contactList}>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="mailto:william.lafortune.caissy@gmail.com">
-                                <IconPhone className={styles.contactIcon} />
+                                <IconMail className={styles.contactIcon} />
                                 <span>william.lafortune.caissy@gmail.com</span>
                             </a>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="tel:+15146212734">
-                                <IconMail className={styles.contactIcon} />
+                                <IconPhone className={styles.contactIcon} />
                                 <span>514 621-2734</span>
                             </a>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="https://maps.app.goo.gl/Kkv52cwbeziEw9U97" target="_blank" rel="noreferrer noopener">

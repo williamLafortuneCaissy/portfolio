@@ -9,5 +9,41 @@
     "subtitle": "William Lafortune-Caissy, a Front-End web developer who transforms your projects into reality.",
     "contact": "Contact me",
     "cv": "View my Cv"
+  },
+  "Benefits": {
+    "title": "My Front-End expertise <highlight>at yout Service</highlight>",
+    "programming": {
+      "title": "Innovating Front-End",
+      "text": "Transform your concepts into dynamic, fast and friendly interfaces thanks to my Front-End expertise. With several years of experience, I have mastered modern tools and frameworks to create efficient websites and applications."
+    },
+    "design": {
+      "title": "Intuitive Designs",
+      "text": "With a strong attention to detail and technical precision, I offer a perfect balance that meets the needs of users while respecting the project objectives. My approach makes it possible to transform creative concepts into intuitive and engaging interfaces, guaranteeing an exceptional user experience."
+    },
+    "communication": {
+      "title": "Remarkable Organization",
+      "text": "Thanks to a flexible and effective working method, I am able to quickly adapt to the changing needs for projects. My excellent communication allows me to collaborate closely with teams and customers, thus guaranteeing optimal results within the scheduled deadlines."
+    }
+  },
+  "Frameworks": {
+    "title": "The roots of <highlight> my Digital creations </highlight>",
+    "text": "Mastering the fundamentals of the web with HTML, CSS, and JavaScript, I use a range  of advanced tools to craft fluid and captivating user experiences. The technologies I present here are just an overview of my arsenal. I am constantly on the lookout for new tools to enhance my offerings and better adapt to your boldest visions.",
+    "contact": "Contact me",
+    "cv": "View my Cv"
+  },
+  "Design": {
+    "title": "A bridge between <highlight> Design and Development </highlight>",
+    "designer": {
+      "title": "A Front-End expert: an asset for designers",
+      "text": "As a Front-End developer having a good understanding of the principles of design, I am able to get involved in the development of mockups while adhering the technical constraints of programming."
+    },
+    "programmer": {
+      "title": "A UX-oriented developer",
+      "text": "Each customer request is meticulously analyzed and processed while prioritizing an optimal user experience and respecting the overall theme of the product."
+    }
+  },
+  "Contact": {
+    "title": "Contact me",
+    "subtitle": "Build your team of tomorrow, a developer at a time."
   }
 }
