@@ -8,11 +8,9 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PlanetGraphic from "../planetGraphic/PlanetGraphic";
-import { useTranslations } from "next-intl";
 
 const Hero = () => {
     const heroRef = useRef();
-    const t = useTranslations('Hero');
 
     gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -60,16 +58,14 @@ const Hero = () => {
             <div className="isolatedRelative pinnedContent">
                 <GridSpot squareMask size="100% 40%" position="top" />
                 <div className={`${styles.content} `}>
-                    <h1></h1>
                     <h1 className={`${styles.title} fadeIn`}>
-                        {/* cannot use t.rich because the animation breaks */}
-                        {t('title_1')} <br />
-                        <span className={`${styles.animatedGradient} gradient`}>{t('title_2')}</span>
+                        Donnez vie à vos idées <br />
+                        <span className={`${styles.animatedGradient} gradient`}>les plus innovant</span>
                     </h1>
-                    <p className={`${styles.subtitle} fadeIn`}>{t('subtitle')} </p>
+                    <p className={`${styles.subtitle} fadeIn`}>William Lafortune-Caissy, un Développeur Web Front-End qui transforme vos projets en réalité.</p>
                     <div className={`${styles.ctas} fadeIn`}>
-                        <Button as="a" href="#contact">{t('contact')} </Button>
-                        <Button as="a" href="./cv.pdf" secondary target="_blank">{t('cv')} </Button>
+                        <Button as="a" href="#contact">Contactez-moi</Button>
+                        <Button as="a" href="./cv.pdf" secondary target="_blank">Voir le cv</Button>
                     </div>
                 </div>
             </div>
