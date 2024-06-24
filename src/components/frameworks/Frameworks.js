@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 const frameworks = [
     {
@@ -42,6 +43,7 @@ const frameworks = [
 ]
 
 const Frameworks = () => {
+    const t = useTranslations('Frameworks');
     const frameworkRef = useRef();
     const contentRef = useRef();
 
@@ -75,11 +77,15 @@ const Frameworks = () => {
             <GridSpot size="120vw 120vw" position="bottom" mobileOnly />
             <div className={styles.container} ref={contentRef}>
                 <div className={styles.content}>
-                    <h2 className={`${styles.title} fadeIn`}>Aux Racines des<div className="gradientText">Créations Numériques</div></h2>
-                    <p className={`${styles.text} fadeIn`}>Maîtrisant les fondamentaux du web avec HTML, CSS, et JavaScript, j’utilise une palette d’outils avancés pour sculpter des expériences utilisateurs fluides et captivantes. Les technologies que je présente ici ne sont qu’un aperçu de mon arsenal. Je suis constamment à l’affût de nouveaux outils pour enrichir mon offre et mieux s’adapter à vos visions les plus audacieuses.</p>
+                    <h2 className={`${styles.title} fadeIn`}>
+                        {t.rich('title', {
+                            highlight: (chunks) => <div className="gradientText">{chunks}</div>
+                        })}
+                    </h2>
+                    <p className={`${styles.text} fadeIn`}>{t('text')}</p>
                     <div className={`${styles.ctas} fadeIn`}>
-                        <Button as="a" href="#contact">Contactez-moi</Button>
-                        <Button as="a" href="/cv.pdf" secondary target="_blank">Voir le cv</Button>
+                        <Button as="a" href="#contact">{t('contact')}</Button>
+                        <Button as="a" href="/cv.pdf" secondary target="_blank">{t('cv')}</Button>
                     </div>
                 </div>
                 <div className={styles.wheel}>
