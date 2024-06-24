@@ -7,6 +7,18 @@ import Contact from "@/components/contact/Contact";
 import GridSpot from "@/components/gridSpot/GridSpot";
 import { unstable_setRequestLocale } from "next-intl/server";
 
+
+import {getTranslations} from 'next-intl/server';
+ 
+export async function generateMetadata({params: {locale}}) {
+  const t = await getTranslations({locale, namespace: 'Home'});
+ 
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
+
 export default function Home({ params: { locale } }) {
   unstable_setRequestLocale(locale);
 

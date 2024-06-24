@@ -7,11 +7,6 @@ import { NextIntlClientProvider } from "next-intl";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "William Lafortune-Caissy",
-  description: "Portfolio de William Lafortune-Caissy, développeur Front-End à Sainte-Sophie. Ouvert aux opportunités d'emploi sur place, hybride ou en télétravail dans les environs de Saint-Jérôme, Terrebonne et Mirabel.",
-};
-
 const locales = ['en', 'fr'];
 
 export function generateStaticParams() {
