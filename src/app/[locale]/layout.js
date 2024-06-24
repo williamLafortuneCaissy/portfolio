@@ -4,13 +4,11 @@ import "./reset.css";
 import "./globals.css";
 import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
+import { locales } from "@/config";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
-const locales = ['en', 'fr'];
-
 export function generateStaticParams() {
-  console.log('generateStaticParams');
   return locales.map((locale) => ({ locale }));
 }
 
