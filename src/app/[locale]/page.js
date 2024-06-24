@@ -5,8 +5,11 @@ import Frameworks from "@/components/frameworks/Frameworks";
 import Design from "@/components/design/Design";
 import Contact from "@/components/contact/Contact";
 import GridSpot from "@/components/gridSpot/GridSpot";
+import { unstable_setRequestLocale } from "next-intl/server";
 
-export default function Home() {
+export default function Home({ params: { locale } }) {
+  unstable_setRequestLocale(locale);
+
   return (
     <div className={styles.body}>
       <main className={styles.main}>

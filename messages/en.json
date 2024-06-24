@@ -1,5 +1,9 @@
 {
-    "Index": {
-        "title": "Hello world!"
+    "Hero": {
+      "title_1": "Give life to your most",
+      "title_2": "innovative ideas",
+      "subtitle": "William Lafortune-Caissy, a Front-End web developer who transforms your projects into reality.",
+      "contact": "Contact me",
+      "cv": "View my Cv"
     }
-}
+  }

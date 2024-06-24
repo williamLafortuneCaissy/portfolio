@@ -1,5 +1,9 @@
 {
-    "Index": {
-      "title": "Bonjour tout le Monde!"
-    }
+  "Hero": {
+    "title_1": "Donnez vie à vos idées",
+    "title_2": "les plus innovant",
+    "subtitle": "William Lafortune-Caissy, un Développeur Web Front-End qui transforme vos projets en réalité.",
+    "contact": "Contactez-moi",
+    "cv": "Voir mon Cv"
   }
+}
