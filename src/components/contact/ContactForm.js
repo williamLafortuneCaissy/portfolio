@@ -34,37 +34,42 @@ const ContactForm = ({ className }) => {
   const validateForm = () => {
     // loop throught all inputs and return an error message if one is found
     for (let input in form.data) {
-      const { errorMessage } = validateInput(input, form.data[input].value);
+      const { errorMessage } = validateInput(input, form.data[input].value) || {};
       if (errorMessage) {
         return { errorMessage: 'please fix the error(s) above' }
       }
-    } 
+    }
+  }
+
+  const handleBlur = (e) => {
+    const { name: input } = e.target;
+    const { errorMessage } = validateInput(input, form.data[input].value) || {};
+    if (errorMessage) {
+      dispatch({ type: formActions.updateInputErrorMessage, input, errorMessage })
+    }
   }
 
   const handleChange = (e) => {
     const { name: input, value } = e.target;
-    const { errorMessage } = validateInput(input, value);
-    console.log('errorMessage :>> ', errorMessage);
 
     dispatch({
       type: formActions.updateInput,
       input,
       value,
-      errorMessage,
     })
   };
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const { errorMessage} = validateForm();
-    
+
+    const { errorMessage } = validateForm() || {};
+
     if (errorMessage) {
       dispatch({ type: formActions.submitFailure, status: errorMessage })
       return
     }
-    
+
     dispatch({ type: formActions.formIsLoading });
 
     console.log('check if form is valid after dispatch submitRequest :>> ', form.isValid);
@@ -98,16 +103,18 @@ const ContactForm = ({ className }) => {
     <form className={`${styles.card} ${styles.form}`} onSubmit={handleSubmit}>
       <label>
         <div className={styles.label}>Nom :</div>
-        <input className={styles.input} type="text" name="name" value={form.data.name.value} onChange={handleChange} />
+        <input className={styles.input} type="text" name="name" value={form.data.name.value} onChange={handleChange} onBlur={handleBlur}/>
         {form.data.name.errorMessage && <p className={styles.error}>{form.data.name.errorMessage}</p>}
       </label>
       <label>
         <div className={styles.label}>Courriel :</div>
-        <input className={styles.input} type="email" name="email" value={form.data.email} onChange={handleChange} />
+        <input className={styles.input} type="email" name="email" value={form.data.email.value} onChange={handleChange} />
+        {form.data.email.errorMessage && <p className={styles.error}>{form.data.email.errorMessage}</p>}
       </label>
       <label>
         <div className={styles.label}>Message :</div>
-        <textarea className={styles.input} name="message" value={form.data.message} onChange={handleChange} rows="7"></textarea>
+        <textarea className={styles.input} name="message" value={form.data.message.value} onChange={handleChange} rows="7"></textarea>
+        {form.data.message.errorMessage && <p className={styles.error}>{form.data.message.errorMessage}</p>}
       </label>
       <Button className={styles.submit} type="submit">Envoyer</Button>
       {form.status && <p className={styles.status}>{form.status}</p>}

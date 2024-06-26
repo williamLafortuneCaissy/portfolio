@@ -7,31 +7,24 @@ export const formInitialState = {
             value: '',
             errorMessage: ''
         },
-        email: '',
-        message: ''
+        email: {
+            value: '',
+            errorMessage: ''
+        },
+        message: {
+            value: '',
+            errorMessage: ''
+        }
     }
 };
 
 export const formActions = {
     updateInput: 'updateInput',
-    clearInputs: 'clearInput',
+    updateInputErrorMessage: 'updateInputErrorMessage',
     formIsLoading: 'formIsLoading',
     submitSuccess: 'submitSuccess',
     submitFailure: 'submitFailure'
 }
-
-// const validateForm = (form) => {
-//     const nameIsValid = validateName(form.data.name);
-//     const emailIsValid = validateEmail(form.data.email);
-//     const messageIsValid = validateMessage(form.data.message);
-
-//     return nameIsValid && emailIsValid && messageIsValid
-// }
-
-// function validateEmail(email) {
-//     const regex = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/;
-//     return regex.test(email);
-// }
 
 export const formReducer = (state, action) => {
     switch (action.type) {
@@ -45,23 +38,33 @@ export const formReducer = (state, action) => {
                     ...state.data,
                     [action.input]: {
                         value: action.value,
-                        errorMessage: action.errorMessage
+                        errorMessage: '',
                     },
-
                 }
             };
-        case formActions.clearInputs:
-            console.log(formActions.clearInputs);
+        case formActions.updateInputErrorMessage:
+            console.log(formActions.updateInputErrorMessage);
             return {
                 ...state,
-                data: formInitialState.data
+                data: {
+                    ...state.data,
+                    [action.input]: {
+                        value: state.data[action.input].value,
+                        errorMessage: action.errorMessage
+                    },
+                }
             };
         case formActions.formIsLoading:
             console.log(formActions.formIsLoading);
             return { ...state, isLoading: true };
         case formActions.submitSuccess:
             console.log(formActions.submitSuccess);
-            return { ...state, isLoading: false, status: "Form Submitted Successfully" };
+            return { 
+                ...state, 
+                isLoading: false, 
+                status: "Form Submitted Successfully",
+                data: formInitialState.data
+            };
         case formActions.submitFailure:
             console.log(formActions.submitFailure);
             return { ...state, isLoading: false, status: action.status };
