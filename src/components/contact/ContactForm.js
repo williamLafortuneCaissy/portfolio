@@ -20,7 +20,6 @@ const ContactForm = ({ className }) => {
   }
 
   const validateInput = (input, value) => {
-    console.log('validateInput', input, value);
     switch (input) {
       case 'name':
         return {
@@ -77,9 +76,8 @@ const ContactForm = ({ className }) => {
       return
     }
 
-    dispatch({ type: formActions.formIsLoading });
+    dispatch({ type: formActions.submitRequest });
 
-    console.log('check if form is valid after dispatch submitRequest :>> ', form.isValid);
     if (!form.isValid) {
       dispatch({ type: formActions.submitFailure, status: "The form is not valid, please fix the error(s) above" })
       return
@@ -92,18 +90,15 @@ const ContactForm = ({ className }) => {
 
     formData.append("access_key", "3748c8fc-84a7-40ad-ba77-cfd2e5b80f4c");
 
-    // const result = await sendEmail(formData);
-    console.log('form :>> ', form);
-    const result = { success: true }
+    const result = await sendEmail(formData);
 
     if (result.success) {
       dispatch({ type: formActions.submitSuccess });
     } else {
-      console.log("Error", result);
-      dispatch({ type: formActions.submitFailure, status: result.message });
+      console.error("Error from Web3Forms", result);
+      dispatch({ type: formActions.submitFailure, status: 'Oops, something went wrong... please contact me at william.lafortune@caissy@gmail.com' });
     }
 
-    dispatch({ type: formActions.clearInputs });
   };
 
   return (

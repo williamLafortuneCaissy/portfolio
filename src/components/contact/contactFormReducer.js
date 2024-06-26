@@ -19,17 +19,16 @@ export const formInitialState = {
 };
 
 export const formActions = {
-    updateInputValue: 'updateInputValue',
-    updateInputErrorMessage: 'updateInputErrorMessage',
-    formIsLoading: 'formIsLoading',
-    submitSuccess: 'submitSuccess',
-    submitFailure: 'submitFailure'
+    updateInputValue: 'UPDATE_INPUT_VALUE',
+    updateInputErrorMessage: 'UPDATE_INPUT_ERROR_MESSAGE',
+    submitRequest: 'SUBMIT_REQUEST',
+    submitSuccess: 'SUBMIT_SUCCESS',
+    submitFailure: 'SUBMIT_FAILURE'
 }
 
 export const formReducer = (state, action) => {
     switch (action.type) {
         case formActions.updateInputValue:
-            console.log(formActions.updateInputValue, action);
             return {
                 ...state,
                 status: '',
@@ -43,7 +42,6 @@ export const formReducer = (state, action) => {
                 }
             };
         case formActions.updateInputErrorMessage:
-            console.log(formActions.updateInputErrorMessage);
             return {
                 ...state,
                 data: {
@@ -54,11 +52,9 @@ export const formReducer = (state, action) => {
                     },
                 }
             };
-        case formActions.formIsLoading:
-            console.log(formActions.formIsLoading);
+        case formActions.submitRequest:
             return { ...state, isLoading: true };
         case formActions.submitSuccess:
-            console.log(formActions.submitSuccess);
             return { 
                 ...state, 
                 isLoading: false, 
@@ -66,7 +62,6 @@ export const formReducer = (state, action) => {
                 data: formInitialState.data
             };
         case formActions.submitFailure:
-            console.log(formActions.submitFailure);
             return { ...state, isLoading: false, status: action.status };
         default:
             throw Error('Unknown action: ' + action.type);
