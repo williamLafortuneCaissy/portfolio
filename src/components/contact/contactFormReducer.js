@@ -1,47 +1,70 @@
 export const formInitialState = {
     status: '',
     isLoading: false,
+    isValid: true,
     data: {
-        name: '',
+        name: {
+            value: '',
+            errorMessage: ''
+        },
         email: '',
         message: ''
     }
 };
 
 export const formActions = {
-    change: 'change',
-    clear: 'clear',
-    submitRequest: 'submitRequest',
+    updateInput: 'updateInput',
+    clearInputs: 'clearInput',
+    formIsLoading: 'formIsLoading',
     submitSuccess: 'submitSuccess',
     submitFailure: 'submitFailure'
 }
 
-export const formReducer = (form, action) => {
+// const validateForm = (form) => {
+//     const nameIsValid = validateName(form.data.name);
+//     const emailIsValid = validateEmail(form.data.email);
+//     const messageIsValid = validateMessage(form.data.message);
+
+//     return nameIsValid && emailIsValid && messageIsValid
+// }
+
+// function validateEmail(email) {
+//     const regex = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/;
+//     return regex.test(email);
+// }
+
+export const formReducer = (state, action) => {
     switch (action.type) {
-        case formActions.change:
-            console.log('change');
+        case formActions.updateInput:
+            console.log(formActions.updateInput, action);
             return {
-                ...form,
+                ...state,
+                status: '',
+                isValid: true,
                 data: {
-                    ...form.data,
-                    [action.name]: action.value
+                    ...state.data,
+                    [action.input]: {
+                        value: action.value,
+                        errorMessage: action.errorMessage
+                    },
+
                 }
             };
-        case formActions.clear:
-            console.log('clear');
+        case formActions.clearInputs:
+            console.log(formActions.clearInputs);
             return {
-                ...form,
+                ...state,
                 data: formInitialState.data
             };
-        case formActions.submitRequest:
-            console.log('submitRequest');
-            return { ...form, isLoading: true };
+        case formActions.formIsLoading:
+            console.log(formActions.formIsLoading);
+            return { ...state, isLoading: true };
         case formActions.submitSuccess:
-            console.log('submitSuccess');
-            return { ...form, isLoading: false, status: "Form Submitted Successfully" };
+            console.log(formActions.submitSuccess);
+            return { ...state, isLoading: false, status: "Form Submitted Successfully" };
         case formActions.submitFailure:
-            console.log('submitFailure');
-            return { ...form, isLoading: false, status: action.status };
+            console.log(formActions.submitFailure);
+            return { ...state, isLoading: false, status: action.status };
         default:
             throw Error('Unknown action: ' + action.type);
     }

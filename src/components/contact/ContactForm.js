@@ -7,20 +7,6 @@ import { formActions, formInitialState, formReducer } from './contactFormReducer
 
 const ContactForm = ({ className }) => {
   const [form, dispatch] = useReducer(formReducer, formInitialState);
- 
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    dispatch({
-      type: formActions.change,
-      name, 
-      value
-    })
-  };
-
-  const handleClear = () => {
-    dispatch({ type: formActions.clear });
-  };
 
   async function sendEmail(formData) {
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -33,19 +19,70 @@ const ContactForm = ({ className }) => {
     return result
   }
 
+  const validateInput = (input, value) => {
+    console.log('validateInput', input, value);
+    switch (input) {
+      case 'name':
+        return {
+          errorMessage: !value.trim() ? 'Please enter your name' : ''
+        }
+      default:
+        break;
+    }
+  }
+
+  const validateForm = () => {
+    // loop throught all inputs and return an error message if one is found
+    for (let input in form.data) {
+      const { errorMessage } = validateInput(input, form.data[input].value);
+      if (errorMessage) {
+        return { errorMessage: 'please fix the error(s) above' }
+      }
+    } 
+  }
+
+  const handleChange = (e) => {
+    const { name: input, value } = e.target;
+    const { errorMessage } = validateInput(input, value);
+    console.log('errorMessage :>> ', errorMessage);
+
+    dispatch({
+      type: formActions.updateInput,
+      input,
+      value,
+      errorMessage,
+    })
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: formActions.submitRequest });
+    
+    const { errorMessage} = validateForm();
+    
+    if (errorMessage) {
+      dispatch({ type: formActions.submitFailure, status: errorMessage })
+      return
+    }
+    
+    dispatch({ type: formActions.formIsLoading });
+
+    console.log('check if form is valid after dispatch submitRequest :>> ', form.isValid);
+    if (!form.isValid) {
+      dispatch({ type: formActions.submitFailure, status: "The form is not valid, please fix the error(s) above" })
+      return
+    }
 
     const formData = new FormData();
-    for (var key in form.data) {
-      formData.append(key, form.data[key]);
+    for (let input in form.data) {
+      formData.append(input, form.data[input]);
     }
 
     formData.append("access_key", "3748c8fc-84a7-40ad-ba77-cfd2e5b80f4c");
 
+    // const result = await sendEmail(formData);
     console.log('form :>> ', form);
-    const result = await sendEmail(formData);
+    const result = { success: true }
 
     if (result.success) {
       dispatch({ type: formActions.submitSuccess });
@@ -54,24 +91,26 @@ const ContactForm = ({ className }) => {
       dispatch({ type: formActions.submitFailure, status: result.message });
     }
 
-    handleClear();
+    dispatch({ type: formActions.clearInputs });
   };
 
   return (
     <form className={`${styles.card} ${styles.form}`} onSubmit={handleSubmit}>
       <label>
-        <div className={styles.label}>Nom:</div>
-        <input className={styles.input} type="text" name="name" value={form.data.name} onChange={handleChange} />
+        <div className={styles.label}>Nom :</div>
+        <input className={styles.input} type="text" name="name" value={form.data.name.value} onChange={handleChange} />
+        {form.data.name.errorMessage && <p className={styles.error}>{form.data.name.errorMessage}</p>}
       </label>
       <label>
-        <div className={styles.label}>Courriel:</div>
+        <div className={styles.label}>Courriel :</div>
         <input className={styles.input} type="email" name="email" value={form.data.email} onChange={handleChange} />
       </label>
       <label>
-        <div className={styles.label}>Message:</div>
+        <div className={styles.label}>Message :</div>
         <textarea className={styles.input} name="message" value={form.data.message} onChange={handleChange} rows="7"></textarea>
       </label>
       <Button className={styles.submit} type="submit">Envoyer</Button>
+      {form.status && <p className={styles.status}>{form.status}</p>}
     </form>
   );
 }
