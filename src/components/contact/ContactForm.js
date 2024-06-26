@@ -5,48 +5,76 @@ import Button from '../button/Button';
 import styles from './contact.module.css';
 
 const ContactForm = ({ className }) => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState({ message: '', isLoading: false });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
+    setStatus({
+      message: '',
+      isLoading: true,
     });
 
-    if (response.ok) {
-      console.log('Email sent successfully');
-    } else {
-      console.error('Failed to send email');
+    const realFormData = new FormData(e.target);
+    
+    const formData = new FormData();
+    for (var key in form) {
+      formData.append(key, form[key]);
     }
+
+    console.log('formData :>> ', formData);
+    console.log('realFormData :>> ', realFormData);
+
+    formData.append("access_key", "3748c8fc-84a7-40ad-ba77-cfd2e5b80f4c");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      e.target.reset();
+      setStatus({
+        message: "Form Submitted Successfully",
+        isLoading: false,
+      });
+
+    } else {
+      console.log("Error", data);
+      setStatus({
+        message: data.message,
+        isLoading: false,
+      });
+    }
+
+    setForm({ name: '', email: '', message: '' });
   };
 
   return (
     <form className={`${styles.card} ${styles.form}`} onSubmit={handleSubmit}>
       <label>
         <div className={styles.label}>Nom:</div>
-        <input className={styles.input} type="text" name="name" value={formData.name} onChange={handleChange} />
+        <input className={styles.input} type="text" name="name" value={form.name} onChange={handleChange} />
       </label>
       <label>
         <div className={styles.label}>Courriel:</div>
-        <input className={styles.input} type="email" name="email" value={formData.email} onChange={handleChange} />
+        <input className={styles.input} type="email" name="email" value={form.email} onChange={handleChange} />
       </label>
       <label>
         <div className={styles.label}>Message:</div>
-        <textarea className={styles.input} name="message" value={formData.message} onChange={handleChange} rows="7"></textarea>
+        <textarea className={styles.input} name="message" value={form.message} onChange={handleChange} rows="7"></textarea>
       </label>
       <Button className={styles.submit} type="submit">Envoyer</Button>
     </form>
   );
 }
- 
+
 
 export default ContactForm;

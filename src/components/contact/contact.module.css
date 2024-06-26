@@ -76,7 +76,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 2vw;
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 .label {
@@ -101,7 +101,7 @@
     align-self: start;
 }
 
-/* 
+
 @media screen and (min-width: 1024px) {
     .container {
         display: grid;
@@ -122,4 +122,3 @@
         align-self: end;
     } 
 }
-*/
