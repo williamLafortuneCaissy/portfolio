@@ -39,7 +39,6 @@ const ContactForm = ({ className }) => {
 
   const validateForm = () => {
     let isValid = true
-    // loop throught all inputs and return an error message if one is found
     for (let input in form.data) {
       const { errorMessage } = validateInput(input, form.data[input].value) || {};
       if (errorMessage) {
@@ -84,26 +83,24 @@ const ContactForm = ({ className }) => {
     dispatch({ type: formActions.submitRequest });
 
     if (!form.isValid) {
-      dispatch({ type: formActions.submitFailure, status: "The form is not valid, please fix the error(s) above" })
+      dispatch({ type: formActions.submitFailure, status: "svp, veuillez corriger les erreurs ci-dessus" })
       return
     }
 
     const formData = new FormData();
     for (let input in form.data) {
-      formData.append(input, form.data[input]);
+      formData.append(input, form.data[input].value);
     }
-
     formData.append("access_key", "3748c8fc-84a7-40ad-ba77-cfd2e5b80f4c");
 
     const result = await sendEmail(formData);
 
     if (result.success) {
-      dispatch({ type: formActions.submitSuccess });
+      dispatch({ type: formActions.submitSuccess, status: "Merci pour votre message, je vous recontacte dans les plus bref delais" });
     } else {
       console.error("Error from Web3Forms", result);
-      dispatch({ type: formActions.submitFailure, status: 'Oops, something went wrong... please contact me at william.lafortune@caissy@gmail.com' });
+      dispatch({ type: formActions.submitFailure, status: "Oops, une erreur s'est produite... svp, envoyez votre message a william.lafortune@caissy@gmail.com" });
     }
-
   };
 
   return (

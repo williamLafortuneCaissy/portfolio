@@ -58,7 +58,7 @@ export const formReducer = (state, action) => {
             return { 
                 ...state, 
                 isLoading: false, 
-                status: "Form Submitted Successfully",
+                status: action.status,
                 data: formInitialState.data
             };
         case formActions.submitFailure:
