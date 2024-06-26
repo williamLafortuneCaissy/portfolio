@@ -6,9 +6,6 @@ import styles from './contact.module.css';
 import { formActions, formInitialState, formReducer } from './contactFormReducer';
 
 const ContactForm = ({ className }) => {
-  // const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState({ message: '', isLoading: false });
-
   const [form, dispatch] = useReducer(formReducer, formInitialState);
  
 
@@ -25,45 +22,36 @@ const ContactForm = ({ className }) => {
     dispatch({ type: formActions.clear });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus({
-      message: '',
-      isLoading: true,
-    });
-
-    const realFormData = new FormData(e.target);
-    
-    const formData = new FormData();
-    for (var key in form) {
-      formData.append(key, form[key]);
-    }
-
-    console.log('formData :>> ', formData);
-    console.log('realFormData :>> ', realFormData);
-
-    formData.append("access_key", "3748c8fc-84a7-40ad-ba77-cfd2e5b80f4c");
-
+  async function sendEmail(formData) {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: formData
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
-    if (data.success) {
-      e.target.reset();
-      setStatus({
-        message: "Form Submitted Successfully",
-        isLoading: false,
-      });
+    return result
+  }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch({ type: formActions.submitRequest });
+
+    const formData = new FormData();
+    for (var key in form.data) {
+      formData.append(key, form.data[key]);
+    }
+
+    formData.append("access_key", "3748c8fc-84a7-40ad-ba77-cfd2e5b80f4c");
+
+    console.log('form :>> ', form);
+    const result = await sendEmail(formData);
+
+    if (result.success) {
+      dispatch({ type: formActions.submitSuccess });
     } else {
-      console.log("Error", data);
-      setStatus({
-        message: data.message,
-        isLoading: false,
-      });
+      console.log("Error", result);
+      dispatch({ type: formActions.submitFailure, status: result.message });
     }
 
     handleClear();
@@ -73,15 +61,15 @@ const ContactForm = ({ className }) => {
     <form className={`${styles.card} ${styles.form}`} onSubmit={handleSubmit}>
       <label>
         <div className={styles.label}>Nom:</div>
-        <input className={styles.input} type="text" name="name" value={form.name} onChange={handleChange} />
+        <input className={styles.input} type="text" name="name" value={form.data.name} onChange={handleChange} />
       </label>
       <label>
         <div className={styles.label}>Courriel:</div>
-        <input className={styles.input} type="email" name="email" value={form.email} onChange={handleChange} />
+        <input className={styles.input} type="email" name="email" value={form.data.email} onChange={handleChange} />
       </label>
       <label>
         <div className={styles.label}>Message:</div>
-        <textarea className={styles.input} name="message" value={form.message} onChange={handleChange} rows="7"></textarea>
+        <textarea className={styles.input} name="message" value={form.data.message} onChange={handleChange} rows="7"></textarea>
       </label>
       <Button className={styles.submit} type="submit">Envoyer</Button>
     </form>
