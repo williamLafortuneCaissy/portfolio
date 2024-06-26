@@ -38,12 +38,17 @@ const ContactForm = ({ className }) => {
   }
 
   const validateForm = () => {
+    let isValid = true
     // loop throught all inputs and return an error message if one is found
     for (let input in form.data) {
       const { errorMessage } = validateInput(input, form.data[input].value) || {};
       if (errorMessage) {
-        return { errorMessage: 'please fix the error(s) above' }
+        isValid = false
+        dispatch({ type: formActions.updateInputErrorMessage, input, errorMessage })
       }
+    }
+    if (!isValid) {
+      return { errorMessage: 'please fix the error(s) above' }
     }
   }
 
