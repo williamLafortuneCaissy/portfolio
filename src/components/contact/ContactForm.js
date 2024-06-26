@@ -26,6 +26,13 @@ const ContactForm = ({ className }) => {
         return {
           errorMessage: !value.trim() ? 'Please enter your name' : ''
         }
+
+      case 'email':
+        const regex = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/;
+        return {
+          errorMessage: !regex.test(value) ? 'Please enter a valid email address' : ''
+        }
+        
       default:
         break;
     }
@@ -53,7 +60,7 @@ const ContactForm = ({ className }) => {
     const { name: input, value } = e.target;
 
     dispatch({
-      type: formActions.updateInput,
+      type: formActions.updateInputValue,
       input,
       value,
     })
@@ -103,17 +110,17 @@ const ContactForm = ({ className }) => {
     <form className={`${styles.card} ${styles.form}`} onSubmit={handleSubmit}>
       <label>
         <div className={styles.label}>Nom :</div>
-        <input className={styles.input} type="text" name="name" value={form.data.name.value} onChange={handleChange} onBlur={handleBlur}/>
+        <input className={styles.input} type="text" name="name" value={form.data.name.value} onChange={handleChange} onBlur={handleBlur} />
         {form.data.name.errorMessage && <p className={styles.error}>{form.data.name.errorMessage}</p>}
       </label>
       <label>
         <div className={styles.label}>Courriel :</div>
-        <input className={styles.input} type="email" name="email" value={form.data.email.value} onChange={handleChange} />
+        <input className={styles.input} type="email" name="email" value={form.data.email.value} onChange={handleChange} onBlur={handleBlur} />
         {form.data.email.errorMessage && <p className={styles.error}>{form.data.email.errorMessage}</p>}
       </label>
       <label>
         <div className={styles.label}>Message :</div>
-        <textarea className={styles.input} name="message" value={form.data.message.value} onChange={handleChange} rows="7"></textarea>
+        <textarea className={styles.input} name="message" value={form.data.message.value} onChange={handleChange} rows="7" onBlur={handleBlur}></textarea>
         {form.data.message.errorMessage && <p className={styles.error}>{form.data.message.errorMessage}</p>}
       </label>
       <Button className={styles.submit} type="submit">Envoyer</Button>

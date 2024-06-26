@@ -19,7 +19,7 @@ export const formInitialState = {
 };
 
 export const formActions = {
-    updateInput: 'updateInput',
+    updateInputValue: 'updateInputValue',
     updateInputErrorMessage: 'updateInputErrorMessage',
     formIsLoading: 'formIsLoading',
     submitSuccess: 'submitSuccess',
@@ -28,8 +28,8 @@ export const formActions = {
 
 export const formReducer = (state, action) => {
     switch (action.type) {
-        case formActions.updateInput:
-            console.log(formActions.updateInput, action);
+        case formActions.updateInputValue:
+            console.log(formActions.updateInputValue, action);
             return {
                 ...state,
                 status: '',
