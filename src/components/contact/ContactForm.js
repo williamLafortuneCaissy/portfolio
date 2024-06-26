@@ -1,16 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import Button from '../button/Button';
 import styles from './contact.module.css';
+import { formActions, formInitialState, formReducer } from './contactFormReducer';
 
 const ContactForm = ({ className }) => {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  // const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState({ message: '', isLoading: false });
+
+  const [form, dispatch] = useReducer(formReducer, formInitialState);
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    dispatch({
+      type: formActions.change,
+      name, 
+      value
+    })
+  };
+
+  const handleClear = () => {
+    dispatch({ type: formActions.clear });
   };
 
   const handleSubmit = async (e) => {
@@ -54,7 +66,7 @@ const ContactForm = ({ className }) => {
       });
     }
 
-    setForm({ name: '', email: '', message: '' });
+    handleClear();
   };
 
   return (
