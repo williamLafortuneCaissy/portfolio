@@ -23,14 +23,14 @@ const ContactForm = ({ className }) => {
     switch (input) {
       case 'name':
         return {
-          errorMessage: !value.trim() ? 'Please enter your name' : ''
+          errorMessage: !value.trim() ? 'Ce champ est requis' : ''
         }
 
       case 'email':
+        if (!value.trim()) return { errorMessage: 'Ce champ est requis' }
+        
         const regex = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/;
-        return {
-          errorMessage: !regex.test(value) ? 'Please enter a valid email address' : ''
-        }
+        return {errorMessage: !regex.test(value) ? 'Courriel invalide' : ''}
         
       default:
         break;
@@ -47,7 +47,7 @@ const ContactForm = ({ className }) => {
       }
     }
     if (!isValid) {
-      return { errorMessage: 'please fix the error(s) above' }
+      return { errorMessage: 'Certaines informations ne sont pas valides.' }
     }
   }
 
