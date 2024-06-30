@@ -1,12 +1,26 @@
 'use client';
 
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import Button from '../../button/Button';
 import styles from './contactForm.module.css';
 import { formActions, formInitialState, formReducer } from './contactFormReducer';
 
 const ContactForm = ({ className }) => {
   const [form, dispatch] = useReducer(formReducer, formInitialState);
+
+  useEffect(() => {
+    let isValid = true;
+    for (let input in form.data) {
+      if (form.data[input].errorMessage) {
+        isValid = false;
+        return 
+      }
+    }
+
+    if (form.isValid !== isValid) {
+      dispatch({ type: formActions.updateFormValidation, isValid })
+    }
+  }, [form.data, form.isValid]);
 
   async function sendEmail(formData) {
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -22,16 +36,14 @@ const ContactForm = ({ className }) => {
   const validateInput = (input, value) => {
     switch (input) {
       case 'name':
-        return {
-          errorMessage: !value.trim() ? 'Ce champ est requis' : ''
-        }
+        return { errorMessage: !value.trim() ? 'Ce champ est requis' : '' }
 
       case 'email':
         if (!value.trim()) return { errorMessage: 'Ce champ est requis' }
         
         const regex = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/;
-        return {errorMessage: !regex.test(value) ? 'Courriel invalide' : ''}
-        
+        return { errorMessage: !regex.test(value) ? 'Courriel invalide' : '' }
+
       default:
         break;
     }
@@ -53,7 +65,7 @@ const ContactForm = ({ className }) => {
 
   const handleBlur = (e) => {
     const { name: input } = e.target;
-    
+
     // we only validate email onBlur (message is not required and required name is validated only on submit)
     if (input !== 'email') return
     if (!form.data[input].value) return
@@ -81,6 +93,7 @@ const ContactForm = ({ className }) => {
     const { errorMessage } = validateForm() || {};
 
     if (errorMessage) {
+      dispatch({ type: formActions.updateFormValidation, isValid: false })
       dispatch({ type: formActions.submitFailure, status: errorMessage })
       return
     }
@@ -125,7 +138,7 @@ const ContactForm = ({ className }) => {
         <textarea className={`${styles.input} ${form.data.message.errorMessage ? styles.invalid : ''}`} name="message" value={form.data.message.value} onChange={handleChange} rows="7" onBlur={handleBlur}></textarea>
         {form.data.message.errorMessage && <p className={styles.error}>{form.data.message.errorMessage}</p>}
       </label>
-      <Button className={styles.submit} type="submit">Envoyer</Button>
+      <Button className={styles.submit} type="submit" disabled={!form.isValid || form.isLoading}>Envoyer</Button>
       {form.status && <p className={styles.status}>{form.status}</p>}
     </form>
   );

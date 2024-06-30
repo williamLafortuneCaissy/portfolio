@@ -19,6 +19,7 @@ export const formInitialState = {
 };
 
 export const formActions = {
+    updateFormValidation: 'UPDATE_FORM_VALIDATION',
     updateInputValue: 'UPDATE_INPUT_VALUE',
     updateInputErrorMessage: 'UPDATE_INPUT_ERROR_MESSAGE',
     submitRequest: 'SUBMIT_REQUEST',
@@ -28,6 +29,8 @@ export const formActions = {
 
 export const formReducer = (state, action) => {
     switch (action.type) {
+        case formActions.updateFormValidation:
+            return { ...state, isValid: action.isValid };
         case formActions.updateInputValue:
             return {
                 ...state,
