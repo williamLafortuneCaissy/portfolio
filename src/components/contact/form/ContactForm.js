@@ -1,8 +1,8 @@
 'use client';
 
 import { useReducer, useState } from 'react';
-import Button from '../button/Button';
-import styles from './contact.module.css';
+import Button from '../../button/Button';
+import styles from './contactForm.module.css';
 import { formActions, formInitialState, formReducer } from './contactFormReducer';
 
 const ContactForm = ({ className }) => {
@@ -53,6 +53,11 @@ const ContactForm = ({ className }) => {
 
   const handleBlur = (e) => {
     const { name: input } = e.target;
+    
+    // we only validate email onBlur (message is not required and required name is validated only on submit)
+    if (input !== 'email') return
+    if (!form.data[input].value) return
+
     const { errorMessage } = validateInput(input, form.data[input].value) || {};
     if (errorMessage) {
       dispatch({ type: formActions.updateInputErrorMessage, input, errorMessage })
@@ -104,20 +109,20 @@ const ContactForm = ({ className }) => {
   };
 
   return (
-    <form className={`${styles.card} ${styles.form}`} onSubmit={handleSubmit}>
-      <label>
+    <form className={`${styles.card} ${className}`} onSubmit={handleSubmit}>
+      <label className={styles.group}>
         <div className={styles.label}>Nom :</div>
-        <input className={styles.input} type="text" name="name" value={form.data.name.value} onChange={handleChange} onBlur={handleBlur} />
+        <input className={`${styles.input} ${form.data.name.errorMessage ? styles.invalid : ''}`} type="text" name="name" value={form.data.name.value} onChange={handleChange} onBlur={handleBlur} />
         {form.data.name.errorMessage && <p className={styles.error}>{form.data.name.errorMessage}</p>}
       </label>
-      <label>
+      <label className={styles.group}>
         <div className={styles.label}>Courriel :</div>
-        <input className={styles.input} type="email" name="email" value={form.data.email.value} onChange={handleChange} onBlur={handleBlur} />
+        <input className={`${styles.input} ${form.data.email.errorMessage ? styles.invalid : ''}`} type="text" name="email" value={form.data.email.value} onChange={handleChange} onBlur={handleBlur} />
         {form.data.email.errorMessage && <p className={styles.error}>{form.data.email.errorMessage}</p>}
       </label>
-      <label>
+      <label className={styles.group}>
         <div className={styles.label}>Message :</div>
-        <textarea className={styles.input} name="message" value={form.data.message.value} onChange={handleChange} rows="7" onBlur={handleBlur}></textarea>
+        <textarea className={`${styles.input} ${form.data.message.errorMessage ? styles.invalid : ''}`} name="message" value={form.data.message.value} onChange={handleChange} rows="7" onBlur={handleBlur}></textarea>
         {form.data.message.errorMessage && <p className={styles.error}>{form.data.message.errorMessage}</p>}
       </label>
       <Button className={styles.submit} type="submit">Envoyer</Button>

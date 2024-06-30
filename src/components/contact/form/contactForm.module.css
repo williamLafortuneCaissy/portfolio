@@ -1,0 +1,50 @@
+.card {
+    padding: 10%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--primary-border-color);
+    background-color: hsl(var(--primary-hue), 30%, 8%);
+    
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+.label {
+    margin-bottom: .25rem
+}
+
+.input {
+    background-color: white;
+    color: black;
+    border-radius: .25rem;
+    padding: .75rem 1rem;
+    width: 100%;
+    transition: outline 0.1s ease-out;
+}
+
+.input:focus {
+    outline: 3px solid var(--primary-border-color);
+}
+
+.input.invalid {
+    outline: 2px solid hsl(0, 80%, 50%);
+}
+
+.group {
+    position: relative;
+}
+
+.error {
+    font-size: .75em;
+    color: hsl(0, 100%, 60%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc( 100% + .25rem );
+}
+
+
+.submit {
+    margin-top: .5rem;
+    align-self: start;
+}

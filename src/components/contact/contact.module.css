@@ -66,40 +66,6 @@
     font-size: 1.25rem;
 }
 
-.card {
-    padding: 10%;
-    border-radius: 0.75rem;
-    border: 1px solid var(--primary-border-color);
-    background-color: hsl(var(--primary-hue), 30%, 8%);
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(1rem, 2vw, 2rem);
-}
-
-.label {
-    margin-bottom: .25rem;
-}
-
-.input {
-    background-color: white;
-    color: black;
-    border-radius: .25rem;
-    padding: .75rem 1rem;
-    width: 100%;
-    transition: outline 0.1s ease-out;
-}
-
-.input:focus {
-    outline: 3px solid var(--primary-border-color);
-}
-
-.submit {
-    margin-top: .5rem;
-    align-self: start;
-}
 
 
 @media screen and (min-width: 1024px) {
@@ -117,8 +83,4 @@
         grid-column: 2;
         grid-row: 1 / span 2;
     }
-
-    .contactList {
-        align-self: end;
-    } 
 }

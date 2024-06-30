@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import PlanetGraphic from "../planetGraphic/PlanetGraphic";
 import { useTranslations } from "next-intl";
-import ContactForm from "./ContactForm";
+import ContactForm from "./form/ContactForm";
 
 const Contact = () => {
     const contactRef = useRef();
