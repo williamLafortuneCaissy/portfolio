@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import PlanetGraphic from "../planetGraphic/PlanetGraphic";
 import { useTranslations } from "next-intl";
+import ContactForm from "./form/ContactForm";
 
 const Contact = () => {
     const t = useTranslations('Contact');
@@ -66,7 +67,7 @@ const Contact = () => {
                                 <a className={styles.socialLink} href="https://github.com/williamLafortuneCaissy" target="_blank" rel="noreferrer noopener"><Icongithub className={styles.icon} /></a>
                             </div>
                         </div>
-                        {/* <ContactForm className={styles.form}/> */}
+                        <ContactForm className={styles.form}/>
                         <div className={styles.contactList}>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="mailto:william.lafortune.caissy@gmail.com">
                                 <IconMail className={styles.contactIcon} />

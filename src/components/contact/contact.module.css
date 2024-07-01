@@ -66,31 +66,7 @@
     font-size: 1.25rem;
 }
 
-.card {
-    padding: 10%;
-    border-radius: 0.75rem;
-    border: 1px solid var(--primary-border-color);
-    background-color: hsl(var(--primary-hue), 30%, 8%);
-}
 
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 2vw;
-}
-
-.label {
-    margin-bottom: .25rem;
-}
-
-.input {
-    background-color: white;
-    color: black;
-    border-radius: .25rem;
-    padding: .75rem 1rem;
-    width: 100%;
-    transition: outline 0.1s ease-out;
-}
 
 .input:focus {
     outline: 3px solid var(--primary-border-color);
@@ -101,7 +77,7 @@
     align-self: flex-start;
 }
 
-/* 
+
 @media screen and (min-width: 1024px) {
     .container {
         display: grid;
@@ -120,6 +96,5 @@
 
     .contactList {
         align-self: flex-end;
-    } 
+    }
 }
-*/
