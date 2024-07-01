@@ -31,3 +31,8 @@
     /* couldnt use hsla because of the grid background. we still keep it for browser compatibility */
     background-color: color-mix(in srgb, var(--body-bg-color) 95%, hsl(var(--accent-hue), 100%, 70%) 5%)
 }
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

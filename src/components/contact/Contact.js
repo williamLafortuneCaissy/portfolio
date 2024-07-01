@@ -8,6 +8,8 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import PlanetGraphic from "../planetGraphic/PlanetGraphic";
+import { useTranslations } from "next-intl";
+import ContactForm from "./form/ContactForm";
 
 const Contact = () => {
     const contactRef = useRef();
@@ -64,14 +66,14 @@ const Contact = () => {
                                 <a className={styles.socialLink} href="https://github.com/williamLafortuneCaissy" target="_blank" rel="noreferrer noopener"><Icongithub className={styles.icon} /></a>
                             </div>
                         </div>
-                        {/* <ContactForm className={styles.form}/> */}
+                        <ContactForm className={styles.form}/>
                         <div className={styles.contactList}>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="mailto:william.lafortune.caissy@gmail.com">
-                                <IconPhone className={styles.contactIcon} />
+                                <IconMail className={styles.contactIcon} />
                                 <span>william.lafortune.caissy@gmail.com</span>
                             </a>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="tel:+15146212734">
-                                <IconMail className={styles.contactIcon} />
+                                <IconPhone className={styles.contactIcon} />
                                 <span>514 621-2734</span>
                             </a>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="https://maps.app.goo.gl/Kkv52cwbeziEw9U97" target="_blank" rel="noreferrer noopener">
