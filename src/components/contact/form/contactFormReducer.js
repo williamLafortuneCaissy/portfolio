@@ -1,5 +1,8 @@
 export const formInitialState = {
-    status: '',
+    status: {
+        type: '',
+        message: '',
+    },
     isLoading: false,
     isValid: true,
     data: {
@@ -18,6 +21,11 @@ export const formInitialState = {
     }
 };
 
+export const statusTypes = {
+    success: 'success',
+    error: 'error',
+}
+
 export const formActions = {
     updateFormValidation: 'UPDATE_FORM_VALIDATION',
     updateInputValue: 'UPDATE_INPUT_VALUE',
@@ -34,7 +42,10 @@ export const formReducer = (state, action) => {
         case formActions.updateInputValue:
             return {
                 ...state,
-                status: '',
+                status: {
+                    type: '',
+                    message: '',
+                },
                 isValid: true,
                 data: {
                     ...state.data,

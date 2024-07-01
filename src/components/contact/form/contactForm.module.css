@@ -34,13 +34,20 @@
     position: relative;
 }
 
-.error {
+.group .error {
     font-size: .75em;
-    color: hsl(0, 100%, 60%);
     position: absolute;
     left: 0;
     right: 0;
     top: calc( 100% + .25rem );
+}
+
+.error {
+    color: hsl(0, 100%, 60%);
+}
+
+.success {
+    color: hsl(120, 50%, 50%);
 }
 
 

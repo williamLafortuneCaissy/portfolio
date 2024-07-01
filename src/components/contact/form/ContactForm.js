@@ -3,7 +3,7 @@
 import { useEffect, useReducer, useState } from 'react';
 import Button from '../../button/Button';
 import styles from './contactForm.module.css';
-import { formActions, formInitialState, formReducer } from './contactFormReducer';
+import { formActions, formInitialState, formReducer, statusTypes } from './contactFormReducer';
 
 const ContactForm = ({ className }) => {
   const [form, dispatch] = useReducer(formReducer, formInitialState);
@@ -13,7 +13,7 @@ const ContactForm = ({ className }) => {
     for (let input in form.data) {
       if (form.data[input].errorMessage) {
         isValid = false;
-        return 
+        return
       }
     }
 
@@ -40,7 +40,7 @@ const ContactForm = ({ className }) => {
 
       case 'email':
         if (!value.trim()) return { errorMessage: 'Ce champ est requis' }
-        
+
         const regex = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/;
         return { errorMessage: !regex.test(value) ? 'Courriel invalide' : '' }
 
@@ -94,16 +94,10 @@ const ContactForm = ({ className }) => {
 
     if (errorMessage) {
       dispatch({ type: formActions.updateFormValidation, isValid: false })
-      dispatch({ type: formActions.submitFailure, status: errorMessage })
+      dispatch({ type: formActions.submitFailure, status: { type: statusTypes.error, message: errorMessage } })
       return
     }
 
-    dispatch({ type: formActions.submitRequest });
-
-    if (!form.isValid) {
-      dispatch({ type: formActions.submitFailure, status: "svp, veuillez corriger les erreurs ci-dessus" })
-      return
-    }
 
     const formData = new FormData();
     for (let input in form.data) {
@@ -111,13 +105,26 @@ const ContactForm = ({ className }) => {
     }
     formData.append("access_key", "3748c8fc-84a7-40ad-ba77-cfd2e5b80f4c");
 
+    dispatch({ type: formActions.submitRequest });
     const result = await sendEmail(formData);
 
     if (result.success) {
-      dispatch({ type: formActions.submitSuccess, status: "Merci pour votre message, je vous recontacte dans les plus bref delais" });
+      dispatch({
+        type: formActions.submitSuccess,
+        status: {
+          type: statusTypes.success,
+          message: "Votre message a été bien été envoyé, je vous recontacte dans les plus bref delais !"
+        }
+      });
     } else {
       console.error("Error from Web3Forms", result);
-      dispatch({ type: formActions.submitFailure, status: "Oops, une erreur s'est produite... svp, envoyez votre message a william.lafortune@caissy@gmail.com" });
+      dispatch({
+        type: formActions.submitFailure,
+        status: {
+          type: statusTypes.error,
+          message: "Oops, une erreur s'est produite... svp, envoyez votre message a william.lafortune@caissy@gmail.com"
+        }
+      });
     }
   };
 
@@ -139,7 +146,7 @@ const ContactForm = ({ className }) => {
         {form.data.message.errorMessage && <p className={styles.error}>{form.data.message.errorMessage}</p>}
       </label>
       <Button className={styles.submit} type="submit" disabled={!form.isValid || form.isLoading}>Envoyer</Button>
-      {form.status && <p className={styles.status}>{form.status}</p>}
+      {form.status.type && <p className={`${styles[form.status.type]}`}>{form.status.message}</p>}
     </form>
   );
 }
