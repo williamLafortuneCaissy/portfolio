@@ -44,6 +44,17 @@
   },
   "Contact": {
     "title": "Contact me",
-    "subtitle": "Build your team of tomorrow, a developer at a time."
+    "subtitle": "Shape the future of your team, one developer at a time."
+  },
+  "ContactForm": {
+    "name": "Name",
+    "email": "E-mail",
+    "message": "Message",
+    "submit": "Send",
+    "success": "Your message has been successfully sent, I will get back to you as soon as possible !",
+    "error": "An error has occurred. Please Try Again.",
+    "required": "This field is required",
+    "invalidEmail": "This email is invalid",
+    "invalidForm": "Some informations are not valid."
   }
 }

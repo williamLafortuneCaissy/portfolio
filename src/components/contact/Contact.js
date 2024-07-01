@@ -75,7 +75,7 @@ const Contact = () => {
                             </a>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="tel:+15146212734">
                                 <IconPhone className={styles.contactIcon} />
-                                <span>514 621-2734</span>
+                                <span>+1 514 621-2734</span>
                             </a>
                             <a className={`${styles.contactLink} ${styles.contactItem}`} href="https://maps.app.goo.gl/Kkv52cwbeziEw9U97" target="_blank" rel="noreferrer noopener">
                                 <IconPin className={styles.contactIcon} />

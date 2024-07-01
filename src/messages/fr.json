@@ -45,5 +45,16 @@
   "Contact": {
     "title": "Contactez-moi",
     "subtitle": "Bâtissez votre équipe de demain, un développeur à la fois."
+  },
+  "ContactForm": {
+    "name": "Nom",
+    "email": "Courriel",
+    "message": "Message",
+    "submit": "Envoyer",
+    "success": "Votre message a été bien été envoyé, je vous recontacterai dans les plus bref delais !",
+    "error": "Une erreur est survenue. Veuillez reessayer.",
+    "required": "Ce champ est requis",
+    "invalidEmail": "Courriel invalide",
+    "invalidForm": "Certaines informations ne sont pas valides."
   }
 }

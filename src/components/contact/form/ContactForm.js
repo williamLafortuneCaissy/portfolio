@@ -4,8 +4,10 @@ import { useEffect, useReducer, useState } from 'react';
 import Button from '../../button/Button';
 import styles from './contactForm.module.css';
 import { formActions, formInitialState, formReducer, statusTypes } from './contactFormReducer';
+import { useTranslations } from 'next-intl';
 
 const ContactForm = ({ className }) => {
+  const t = useTranslations('ContactForm');
   const [form, dispatch] = useReducer(formReducer, formInitialState);
 
   useEffect(() => {
@@ -36,13 +38,13 @@ const ContactForm = ({ className }) => {
   const validateInput = (input, value) => {
     switch (input) {
       case 'name':
-        return { errorMessage: !value.trim() ? 'Ce champ est requis' : '' }
+        return { errorMessage: !value.trim() ? t('required') : '' }
 
       case 'email':
-        if (!value.trim()) return { errorMessage: 'Ce champ est requis' }
+        if (!value.trim()) return { errorMessage: t('required') }
 
         const regex = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/;
-        return { errorMessage: !regex.test(value) ? 'Courriel invalide' : '' }
+        return { errorMessage: !regex.test(value) ? t('invalidEmail') : '' }
 
       default:
         break;
@@ -59,7 +61,7 @@ const ContactForm = ({ className }) => {
       }
     }
     if (!isValid) {
-      return { errorMessage: 'Certaines informations ne sont pas valides.' }
+      return { errorMessage: t('invalidForm') }
     }
   }
 
@@ -113,7 +115,7 @@ const ContactForm = ({ className }) => {
         type: formActions.submitSuccess,
         status: {
           type: statusTypes.success,
-          message: "Votre message a été bien été envoyé, je vous recontacte dans les plus bref delais !"
+          message: t('success')
         }
       });
     } else {
@@ -122,7 +124,7 @@ const ContactForm = ({ className }) => {
         type: formActions.submitFailure,
         status: {
           type: statusTypes.error,
-          message: "Oops, une erreur s'est produite... svp, envoyez votre message a william.lafortune@caissy@gmail.com"
+          message: t('error')
         }
       });
     }
@@ -131,21 +133,21 @@ const ContactForm = ({ className }) => {
   return (
     <form className={`${styles.card} ${className}`} onSubmit={handleSubmit}>
       <label className={styles.group}>
-        <div className={styles.label}>Nom :</div>
+        <div className={styles.label}>{t('name')} :</div>
         <input className={`${styles.input} ${form.data.name.errorMessage ? styles.invalid : ''}`} type="text" name="name" value={form.data.name.value} onChange={handleChange} onBlur={handleBlur} />
         {form.data.name.errorMessage && <p className={styles.error}>{form.data.name.errorMessage}</p>}
       </label>
       <label className={styles.group}>
-        <div className={styles.label}>Courriel :</div>
+        <div className={styles.label}>{t('email')} :</div>
         <input className={`${styles.input} ${form.data.email.errorMessage ? styles.invalid : ''}`} type="text" name="email" value={form.data.email.value} onChange={handleChange} onBlur={handleBlur} />
         {form.data.email.errorMessage && <p className={styles.error}>{form.data.email.errorMessage}</p>}
       </label>
       <label className={styles.group}>
-        <div className={styles.label}>Message :</div>
+        <div className={styles.label}>{t('message')} :</div>
         <textarea className={`${styles.input} ${form.data.message.errorMessage ? styles.invalid : ''}`} name="message" value={form.data.message.value} onChange={handleChange} rows="7" onBlur={handleBlur}></textarea>
         {form.data.message.errorMessage && <p className={styles.error}>{form.data.message.errorMessage}</p>}
       </label>
-      <Button className={styles.submit} type="submit" disabled={!form.isValid || form.isLoading}>Envoyer</Button>
+      <Button className={styles.submit} type="submit" disabled={!form.isValid || form.isLoading}>{t('submit')}</Button>
       {form.status.type && <p className={`${styles[form.status.type]}`}>{form.status.message}</p>}
     </form>
   );
