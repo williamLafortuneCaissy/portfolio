@@ -18,12 +18,13 @@ const Contact = () => {
     gsap.registerPlugin(useGSAP, ScrollTrigger);
 
     const unpin = () => {
-        gsap.set(contactRef.current, { position: 'static', bottom: 'auto', zIndex: 0 });
+        gsap.set(contactRef.current, { position: 'static', top: 'auto', zIndex: 0 });
     }
 
-    const pin = () => {
-        gsap.set(contactRef.current, { position: 'sticky', bottom: 0, zIndex: -1 });
-    }
+    // currently bugged on if contactRef's height is bigger than the 100vh
+    // const pin = () => {
+    //     gsap.set(contactRef.current, { position: 'sticky', top: 0, zIndex: -1 });
+    // }
 
     useGSAP(
         () => {
