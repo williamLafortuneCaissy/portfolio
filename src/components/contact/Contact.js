@@ -22,9 +22,9 @@ const Contact = () => {
     }
 
     // currently bugged on if contactRef's height is bigger than the 100vh
-    // const pin = () => {
-    //     gsap.set(contactRef.current, { position: 'sticky', top: 0, zIndex: -1 });
-    // }
+    const pin = () => {
+        gsap.set(contactRef.current, { position: 'sticky', top: 0, zIndex: -1 });
+    }
 
     useGSAP(
         () => {
@@ -32,10 +32,10 @@ const Contact = () => {
             ScrollTrigger.create({
                 trigger: graphicRef.current,
                 start: "top bottom",
-                onEnter: self => { pin() },
+                onEnter: self => {  /* pin() */ },
                 onLeaveBack: self => { unpin() },
                 onEnterBack: self => {
-                    pin()
+                    // pin()
                     self.refresh() // handles initial pageLoad scroll offset
                 },
                 onLeave: self => {
