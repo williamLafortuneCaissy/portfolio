@@ -1,0 +1,327 @@
+[
+    {
+        "name": "HTML",
+        "tags": ["language", "HTML"]
+    },
+    {
+        "name": "SEO",
+        "tags": ["HTML"]
+    },
+
+    {
+        "name": "PHP",
+        "tags": ["language", "PHP"]
+    },
+    {
+        "name": "Laravel",
+        "tags": ["PHP", "framework"]
+    },
+    {
+        "name": "Codeigniter",
+        "tags": ["PHP", "framework"]
+    },
+    {
+        "name": "MVC",
+        "tags": ["PHP"]
+    },
+    {
+        "name": "Wordpress",
+        "tags": ["PHP", "CMS"]
+    },
+    {
+        "name": "Joomla",
+        "tags": ["PHP", "CMS"]
+    },
+    {
+        "name": "October CMS",
+        "tags": ["PHP", "CMS"]
+    },
+    {
+        "name": "Twig",
+        "tags": ["PHP", "library"]
+    },
+
+    {
+        "name": "Microsoft Access",
+        "tags": []
+    },
+    {
+        "name": "SQL",
+        "tags": ["language"]
+    },
+    {
+        "name": "MySQL",
+        "tags": []
+    },
+    {
+        "name": "phpMyAdmin",
+        "tags": []
+    },
+    {
+        "name": "Firebase",
+        "tags": []
+    },
+    
+    {
+        "name": "CSS",
+        "tags": ["language", "CSS"]
+    },
+    {
+        "name": "Flexbox",
+        "tags": ["CSS"]
+    },
+    {
+        "name": "CSS Grid",
+        "tags": ["CSS"]
+    },
+    {
+        "name": "Bootstrap",
+        "tags": ["CSS", "framework"]
+    },
+    {
+        "name": "UIKit",
+        "tags": ["CSS", "framework"]
+    },
+    {
+        "name": "Material Design",
+        "tags": ["CSS"]
+    },
+    {
+        "name": "Materialize",
+        "tags": ["CSS", "framework"]
+    },
+    {
+        "name": "Tailwind",
+        "tags": ["CSS", "framework"]
+    },
+    {
+        "name": "Foundation",
+        "tags": ["CSS", "framework"]
+    },
+    {
+        "name": "SASS",
+        "tags": ["CSS", "library"]
+    },
+    {
+        "name": "BEM",
+        "tags": ["CSS"]
+    },
+
+    {
+        "name": "JavaScript",
+        "tags": ["language", "JavaScript"]
+    },
+    {
+        "name": "jQuery",
+        "tags": ["JavaScript", "library"]
+    },
+    {
+        "name": "Moment.js",
+        "tags": ["JavaScript", "library"]
+    },
+    {
+        "name": "GSAP",
+        "tags": ["JavaScript", "library"]
+    },
+    {
+        "name": "TypeScript",
+        "tags": ["JavaScript"]
+    },
+    {
+        "name": "React",
+        "tags": ["JavaScript", "framework","React"]
+    },
+    {
+        "name": "Create React App",
+        "tags": ["JavaScript", "React"]
+    },
+    {
+        "name": "Vite",
+        "tags": ["JavaScript", "React"]
+    },
+    {
+        "name": "Next.js",
+        "tags": ["JavaScript", "framework", "React"]
+    },
+    {
+        "name": "React Native",
+        "tags": ["JavaScript", "framework", "React"]
+    },
+    {
+        "name": "React-Admin",
+        "tags": ["JavaScript", "framework", "React"]
+    },
+    {
+        "name": "Reactstrap",
+        "tags": ["JavaScript", "framework", "React"]
+    },
+    {
+        "name": "React-Bootstrap",
+        "tags": ["JavaScript", "framework", "React"]
+    },
+    {
+        "name": "CSS Modules",
+        "tags": ["CSS", "library"]
+    },
+    {
+        "name": "Styled Components",
+        "tags": ["JavaScript", "library"]
+    },
+    {
+        "name": "Redux",
+        "tags": ["JavaScript", "library"]
+    },
+    {
+        "name": "Axios",
+        "tags": ["JavaScript", "library"]
+    },
+    {
+        "name": "Jest",
+        "tags": ["JavaScript", "library"]
+    },
+
+    {
+        "name": "Angular",
+        "tags": ["JavaScript", "framework", "Angular"]
+    },
+    {
+        "name": "Angular Material",
+        "tags": ["JavaScript", "framework", "Angular"]
+    },
+    {
+        "name": "Rxjs",
+        "tags": ["JavaScript", "library"]
+    },
+    {
+        "name": "Ionic",
+        "tags": ["JavaScript", "framework"]
+    },
+
+    {
+        "name": "Figma",
+        "tags": []
+    },
+    {
+        "name": "Adobe XD",
+        "tags": []
+    },
+    {
+        "name": "Photoshop",
+        "tags": []
+    },
+    {
+        "name": "Illustrator",
+        "tags": []
+    },
+    {
+        "name": "Web Design",
+        "tags": []
+    },
+    {
+        "name": "Responsive Design",
+        "tags": []
+    },
+    {
+        "name": "UI",
+        "tags": []
+    },
+    {
+        "name": "UX",
+        "tags": []
+    },
+
+    {
+        "name": "Visual Studio Code",
+        "tags": []
+    },
+    {
+        "name": "Sublime Text",
+        "tags": []
+    },
+    {
+        "name": "Brackets",
+        "tags": []
+    },
+    {
+        "name": "Atom",
+        "tags": []
+    },
+    {
+        "name": "Git",
+        "tags": []
+    },
+    {
+        "name": "GitHub",
+        "tags": []
+    },
+    {
+        "name": "Bitbucket",
+        "tags": []
+    },
+    {
+        "name": "GitLab",
+        "tags": []
+    },
+    {
+        "name": "Docker",
+        "tags": []
+    },
+
+    {
+        "name": "Slack",
+        "tags": []
+    },
+    {
+        "name": "Microsoft Teams",
+        "tags": []
+    },
+    {
+        "name": "Google Meet",
+        "tags": []
+    },
+    {
+        "name": "Trello",
+        "tags": []
+    },
+    {
+        "name": "Jira",
+        "tags": []
+    },
+
+    {
+        "name": "ActionScript",
+        "tags": ["language"]
+    },
+    {
+        "name": "Adobe Animate",
+        "tags": []
+    },
+    {
+        "name": "Adobe Premiere",
+        "tags": []
+    },
+    {
+        "name": "Adobe After Effects",
+        "tags": []
+    },
+    {
+        "name": "Adobe Audition",
+        "tags": []
+    },
+    {
+        "name": "Lua",
+        "tags": ["language"]
+    },
+    {
+        "name": "Unity",
+        "tags": []
+    },
+    {
+        "name": "C#",
+        "tags": ["language"]
+    },
+    {
+        "name": "3ds Max",
+        "tags": []
+    }
+]
