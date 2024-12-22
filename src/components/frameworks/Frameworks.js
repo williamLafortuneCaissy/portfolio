@@ -76,7 +76,7 @@ const Frameworks = () => {
             <div className={styles.container} ref={contentRef}>
                 <div className={styles.content}>
                     <h2 className={`${styles.title} fadeIn`}>Aux Racines des<div className="gradientText">Créations Numériques</div></h2>
-                    <p className={`${styles.text} fadeIn`}>Maîtrisant les fondamentaux du web avec HTML, CSS, et JavaScript, j’utilise une palette d’outils avancés pour sculpter des expériences utilisateurs fluides et captivantes. Les technologies que je présente ici ne sont qu’un aperçu de mon arsenal. Je suis constamment à l’affût de nouveaux outils pour enrichir mon offre et mieux s’adapter à vos visions les plus audacieuses.</p>
+                    <p className={`${styles.text} fadeIn`}>Maîtrisant les fondamentaux du web avec HTML, CSS, et JavaScript, j’utilise une palette d’outils avancés pour sculpter des expériences utilisateurs fluides et captivantes. Parallèlement, Je maîtrise plusieur framework populaire tel que React, Next.js, Bootstrap, Tailwind, Materialize, et bien plus ! Je suis constamment à l’affût de nouveaux outils pour enrichir mon offre et mieux s’adapter à vos visions les plus audacieuses.</p>
                     <div className={`${styles.ctas} fadeIn`}>
                         <Button as="a" href="#contact">Contactez-moi</Button>
                         <Button as="a" href="/cv.pdf" secondary target="_blank">Voir le cv</Button>

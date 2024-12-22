@@ -1,14 +1,12 @@
 .container {
     padding-inline: var(--container-padding);
     max-width: var(--container-width);
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 3rem;
     padding-top: 10rem;
     padding-bottom: 3rem;
-    min-height: 70vh;
+}
+
+.content {
+    margin-bottom: 2rem;
 }
 
 .title {
@@ -23,12 +21,28 @@
     line-height: 1.75;
 }
 
+.card {
+    margin-inline: auto;
+    padding: clamp(2rem, 3vw, 4rem);
+    border-radius: 0.75rem;
+    border: 1px solid var(--primary-border-color);
+    background-color: hsl(var(--primary-hue), 30%, 8%);
+    max-width: 35rem;
+}
+
+.formFooter {
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .socials {
     display: flex;
     align-items: center;
     gap: 1rem;
     font-size: 2rem;
-    margin-top: 1.5rem;
 }
 
 .socialLink {
@@ -64,23 +78,4 @@
 .contactIcon {
     color: var(--text-accent);
     font-size: 1.25rem;
-}
-
-
-
-@media screen and (min-width: 1024px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10rem;
-    }
-
-    .contactList {
-        align-self: end;
-    }
-
-    .form {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-    }
 }

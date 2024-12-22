@@ -5,7 +5,7 @@ import Button from '../../button/Button';
 import styles from './contactForm.module.css';
 import { formActions, formInitialState, formReducer, statusTypes } from './contactFormReducer';
 
-const ContactForm = ({ className }) => {
+const ContactForm = () => {
   const [form, dispatch] = useReducer(formReducer, formInitialState);
 
   useEffect(() => {
@@ -129,7 +129,7 @@ const ContactForm = ({ className }) => {
   };
 
   return (
-    <form className={`${styles.card} ${className}`} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <label className={styles.group}>
         <div className={styles.label}>Nom :</div>
         <input className={`${styles.input} ${form.data.name.errorMessage ? styles.invalid : ''}`} type="text" name="name" value={form.data.name.value} onChange={handleChange} onBlur={handleBlur} />
