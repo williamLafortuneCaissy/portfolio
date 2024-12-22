@@ -1,9 +1,4 @@
-.card {
-    padding: 10%;
-    border-radius: 0.75rem;
-    border: 1px solid var(--primary-border-color);
-    background-color: hsl(var(--primary-hue), 30%, 8%);
-    
+.form {   
     display: flex;
     flex-direction: column;
     gap: clamp(1rem, 2vw, 2rem);
@@ -49,7 +44,6 @@
 .success {
     color: hsl(120, 50%, 50%);
 }
-
 
 .submit {
     margin-top: .5rem;
