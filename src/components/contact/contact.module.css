@@ -50,14 +50,21 @@
     color: var(--text-accent);
 }
 
-.socialLink:hover {
+.socialLink:hover,
+.socialLink:focus-visible {
     color: inherit;
+}
+
+.contactLink:focus-visible,
+.socialLink:focus-visible {
+    border-radius: .25rem;
+    outline: .25rem solid hsla(var(--accent-hue), 100%, 50%, .25)
 }
 
 .contactList {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     gap: .75rem;
 }
 
@@ -71,7 +78,8 @@
     transition: color 0.1s ease-out;
 }
 
-.contactLink:hover {
+.contactLink:hover,
+.contactLink:focus-visible {
     color: var(--text-accent);
 }
 

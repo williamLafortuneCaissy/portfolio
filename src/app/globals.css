@@ -2,13 +2,13 @@
     --body-bg-color: #00000f;
     --primary-hue: 240;
     --accent-hue: 195;
-    
+
     --text-accent: hsl(var(--accent-hue), 100%, 50%);
     --text-light: hsl(var(--primary-hue), 20%, 80%);
     --primary-border-color: hsl(var(--primary-hue), 40%, 50%);
 
     --container-padding: clamp(1rem, 5vw, 3rem);
-    --container-width: 1450px; 
+    --container-width: 1450px;
 }
 
 * {
@@ -38,9 +38,11 @@ body {
     opacity: 0;
 }
 
-.gradientText {
-    background: linear-gradient(90deg, white, var(--text-accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+    .gradientText {
+        background: linear-gradient(90deg, white, var(--text-accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
 }

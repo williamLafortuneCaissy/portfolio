@@ -1,6 +1,7 @@
 .btn {
-    --btn-color: hsl(var(--accent-hue), 80%, 40%);
-    
+    --default-btn-color: hsl(var(--accent-hue), 100%, 30%);
+    --light-btn-color: hsl(var(--accent-hue), 100%, 40%);
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -8,28 +9,32 @@
     padding: 0.5rem 1.5rem;
     border-radius: 100vw;
     transition: all 0.2s ease-in-out;
+    outline: 0px solid hsla(var(--accent-hue), 100%, 50%, .25)
 }
 
-.btn:hover {
-    --btn-color: hsl(var(--accent-hue), 100%, 50%);
-}
-
-.primary {
-    background-color: var(--btn-color);
-    color: white;
+.btn:focus-visible {
+    outline-width: .25rem;
 }
 
 .primary {
-    background-color: var(--btn-color);
+    background-color: var(--default-btn-color);
     color: white;
+}
+
+.primary:hover {
+    background-color: var(--light-btn-color);
 }
 
 .secondary {
-    color: var(--btn-color);;
+    color: var(--light-btn-color);
     border: 1px solid;
-    background: hsla(var(--accent-hue), 100%, 70%, 0.05);
-    /* couldnt use hsla because of the grid background. we still keep it for browser compatibility */
-    background-color: color-mix(in srgb, var(--body-bg-color) 95%, hsl(var(--accent-hue), 100%, 70%) 5%)
+    background-color: hsla(var(--accent-hue), 100%, 70%, 0.05);
+}
+
+.secondary:hover {
+    background-color: var(--default-btn-color);
+    color: white;
+    border-color: var(--default-btn-color);
 }
 
 .disabled {

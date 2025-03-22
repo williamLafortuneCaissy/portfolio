@@ -31,20 +31,23 @@
     gap: 1rem;
 }
 
-/* gradient 3 states of gradient, (from 100% to 0 -> left to right)  */
-/* 100% -> 80%  white (default)*/
-/* 80% -> 20% white red white red (flash) */
-/* 20% -> 0% white red  (final) */
-.animatedGradient {
-    background-image: linear-gradient(90deg,
-            white 0%,
-            var(--text-accent) 20%,
-            white 40%,
-            var(--text-accent) 60%,
-            white 80%);
-    background-size: 500% 100%;
-    background-position: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+
+    /* gradient 3 states of gradient, (from 100% to 0 -> left to right)  */
+    /* 100% -> 80%  white (default)*/
+    /* 80% -> 20% white red white red (flash) */
+    /* 20% -> 0% white red  (final) */
+    .animatedGradient {
+        background-image: linear-gradient(90deg,
+                white 0%,
+                var(--text-accent) 20%,
+                white 40%,
+                var(--text-accent) 60%,
+                white 80%);
+        background-size: 500% 100%;
+        background-position: 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
 }

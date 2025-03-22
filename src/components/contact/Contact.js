@@ -1,14 +1,13 @@
 "use client"
 
-import { IconMail, IconPin, IconPhone, IconFacebook, IconLinkedin, Icongithub } from "../Icons";
-import GridSpot from "../gridSpot/GridSpot";
-import styles from './contact.module.css';
-import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import { IconFacebook, IconLinkedin, IconPin, Icongithub } from "../Icons";
+import GridSpot from "../gridSpot/GridSpot";
 import PlanetGraphic from "../planetGraphic/PlanetGraphic";
-import { useTranslations } from "next-intl";
+import styles from './contact.module.css';
 import ContactForm from "./form/ContactForm";
 
 const Contact = () => {
@@ -64,7 +63,7 @@ const Contact = () => {
                                 <h2 className={styles.title}><span className="gradientText">Contactez-moi</span></h2>
                                 <p className={styles.text}>Bâtissez votre équipe de demain, un développeur à la fois</p>
                             </div>
-                            <ContactForm className={styles.form}/>
+                            <ContactForm className={styles.form} />
                             <div className={styles.formFooter}>
                                 <div className={styles.contactList}>
                                     <a className={`${styles.contactLink} ${styles.contactItem}`} href="https://maps.app.goo.gl/StfD7DerZz57CZgW8" target="_blank" rel="noreferrer noopener">
@@ -73,9 +72,9 @@ const Contact = () => {
                                     </a>
                                 </div>
                                 <div className={styles.socials}>
-                                    <a className={styles.socialLink} href="https://www.facebook.com/william.lafortunecaissy" target="_blank" rel="noreferrer noopener"><IconFacebook className={styles.icon} /></a>
-                                    <a className={styles.socialLink} href="https://www.linkedin.com/in/william-lafortune-caissy-803800149/" target="_blank" rel="noreferrer noopener"><IconLinkedin className={styles.icon} /></a>
-                                    <a className={styles.socialLink} href="https://github.com/williamLafortuneCaissy" target="_blank" rel="noreferrer noopener"><Icongithub className={styles.icon} /></a>
+                                    <a className={styles.socialLink} href="https://www.facebook.com/william.lafortunecaissy" target="_blank" rel="noreferrer noopener" aria-label="Profile Facebook"><IconFacebook className={styles.icon} /></a>
+                                    <a className={styles.socialLink} href="https://www.linkedin.com/in/william-lafortune-caissy-803800149/" target="_blank" rel="noreferrer noopener" aria-label="Profile Linkedin"><IconLinkedin className={styles.icon} /></a>
+                                    <a className={styles.socialLink} href="https://github.com/williamLafortuneCaissy" target="_blank" rel="noreferrer noopener" aria-label="Profile Github"><Icongithub className={styles.icon} /></a>
                                 </div>
                             </div>
                         </div>
