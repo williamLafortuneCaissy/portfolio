@@ -1,11 +1,12 @@
-.form {   
+.form {
     display: flex;
     flex-direction: column;
     gap: clamp(1rem, 2vw, 2rem);
 }
 
 .label {
-    margin-bottom: .25rem
+    margin-bottom: .25rem;
+    display: block;
 }
 
 .input {
@@ -34,7 +35,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: calc( 100% + .25rem );
+    top: calc(100% + .25rem);
 }
 
 .error {
@@ -47,5 +48,5 @@
 
 .submit {
     margin-top: .5rem;
-    align-self: start;
+    align-self: flex-start;
 }

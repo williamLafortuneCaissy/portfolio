@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import Button from '../../button/Button';
 import styles from './contactForm.module.css';
 import { formActions, formInitialState, formReducer, statusTypes } from './contactFormReducer';
@@ -131,17 +131,17 @@ const ContactForm = () => {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <label className={styles.group}>
-        <div className={styles.label}>Nom :</div>
+        <span className={styles.label}>Nom :</span>
         <input className={`${styles.input} ${form.data.name.errorMessage ? styles.invalid : ''}`} type="text" name="name" value={form.data.name.value} onChange={handleChange} onBlur={handleBlur} />
         {form.data.name.errorMessage && <p className={styles.error}>{form.data.name.errorMessage}</p>}
       </label>
       <label className={styles.group}>
-        <div className={styles.label}>Courriel :</div>
+        <span className={styles.label}>Courriel :</span>
         <input className={`${styles.input} ${form.data.email.errorMessage ? styles.invalid : ''}`} type="text" name="email" value={form.data.email.value} onChange={handleChange} onBlur={handleBlur} />
         {form.data.email.errorMessage && <p className={styles.error}>{form.data.email.errorMessage}</p>}
       </label>
       <label className={styles.group}>
-        <div className={styles.label}>Message :</div>
+        <span className={styles.label}>Message :</span>
         <textarea className={`${styles.input} ${form.data.message.errorMessage ? styles.invalid : ''}`} name="message" value={form.data.message.value} onChange={handleChange} rows="7" onBlur={handleBlur}></textarea>
         {form.data.message.errorMessage && <p className={styles.error}>{form.data.message.errorMessage}</p>}
       </label>

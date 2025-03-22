@@ -1,13 +1,13 @@
 "use client"
 
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useRef } from "react";
 import Button from "../button/Button";
 import GridSpot from "../gridSpot/GridSpot";
 import styles from "./frameworks.module.css";
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const frameworks = [
     {
@@ -85,7 +85,7 @@ const Frameworks = () => {
                 <div className={styles.wheel}>
                     {frameworks.map(({ name: frameworkName, icon, style }, key) => (
                         <div className={styles.rotator} style={{ "--rotation-offset": `${360 / frameworks.length * key}deg` }} key={frameworkName}>
-                            <Image className={styles.logo} width="64" height="64" src={icon} alt={frameworkName} style={style} />
+                            <Image className={styles.logo} width="64" height="64" src={icon} alt={frameworkName} style={{ ...style, color: undefined /* WCAG */ }} />
                         </div>
                     ))}
                 </div>
