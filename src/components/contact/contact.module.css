@@ -3,6 +3,7 @@
     max-width: var(--container-width);
     padding-top: 10rem;
     padding-bottom: 3rem;
+    margin-inline: auto;
 }
 
 .content {
@@ -22,7 +23,6 @@
 }
 
 .card {
-    margin-inline: auto;
     padding: clamp(2rem, 3vw, 4rem);
     border-radius: 0.75rem;
     border: 1px solid var(--primary-border-color);
